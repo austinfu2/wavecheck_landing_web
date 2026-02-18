@@ -1,31 +1,120 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>WaveCheck — Surf Forecast App</title>
 <meta name="description" content="Personalized surf forecasts for 125+ spots. Join the waitlist for WaveCheck on iOS and Android.">
 <link rel="icon" type="image/png" href="splash_logo.png">
+<meta name="theme-color" content="#203645" id="theme-color-meta">
 <link href="https://fonts.googleapis.com/css2?family=Shrikhand&family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html, body { height: 100%; }
-  body {
-    font-family: 'Be Vietnam Pro', sans-serif;
-    background: #FAF8EA;
-    display: flex; flex-direction: column;
-    min-height: 100vh; min-height: 100dvh;
+
+  :root {
+    --transition: 0.35s ease;
   }
 
-  .top-links {
-    display: flex; justify-content: center; gap: 24px;
+  /* ═══ DARK THEME ═══ */
+  [data-theme="dark"] {
+    --bg: #203645;
+    --text: #FAF8EA;
+    --text-muted: rgba(250,248,234,0.4);
+    --text-faint: rgba(250,248,234,0.3);
+    --text-ghost: rgba(250,248,234,0.15);
+    --link: rgba(250,248,234,0.3);
+    --link-hover: rgba(250,248,234,0.7);
+    --badge-bg: rgba(1,89,116,0.5);
+    --input-bg: rgba(250,248,234,0.06);
+    --input-border: rgba(250,248,234,0.12);
+    --input-text: #FAF8EA;
+    --input-placeholder: rgba(250,248,234,0.25);
+    --success-bg: rgba(1,89,116,0.2);
+    --success-text: #79CBD3;
+    --store-apple-bg: #fff;
+    --store-apple-text: #000;
+    --store-apple-icon: #000;
+    --store-google-bg: rgba(250,248,234,0.1);
+    --store-google-text: #FAF8EA;
+    --store-google-border: rgba(250,248,234,0.15);
+    --legal-link: #79CBD3;
+    --logo-shadow: 0 4px 32px rgba(0,0,0,0.3);
+    --toggle-bg: rgba(250,248,234,0.1);
+    --toggle-icon: #FAF8EA;
+  }
+
+  /* ═══ LIGHT THEME ═══ */
+  [data-theme="light"] {
+    --bg: #FAF8EA;
+    --text: #203645;
+    --text-muted: rgba(32,54,69,0.4);
+    --text-faint: rgba(32,54,69,0.35);
+    --text-ghost: rgba(32,54,69,0.2);
+    --link: rgba(32,54,69,0.35);
+    --link-hover: #203645;
+    --badge-bg: #015974;
+    --input-bg: #fff;
+    --input-border: rgba(32,54,69,0.12);
+    --input-text: #203645;
+    --input-placeholder: rgba(32,54,69,0.3);
+    --success-bg: rgba(1,89,116,0.08);
+    --success-text: #015974;
+    --store-apple-bg: #000;
+    --store-apple-text: #fff;
+    --store-apple-icon: #fff;
+    --store-google-bg: #fff;
+    --store-google-text: #3c4043;
+    --store-google-border: #dadce0;
+    --legal-link: #015974;
+    --logo-shadow: 0 4px 24px rgba(32,54,69,0.12);
+    --toggle-bg: rgba(32,54,69,0.08);
+    --toggle-icon: #203645;
+  }
+
+  body {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    display: flex; flex-direction: column;
+    min-height: 100vh; min-height: 100dvh;
+    transition: background var(--transition), color var(--transition);
+  }
+
+  .top-bar {
+    display: flex; justify-content: center; align-items: center;
     padding: 16px 20px; flex-shrink: 0;
+    position: relative;
+  }
+  .top-links {
+    display: flex; gap: 24px;
   }
   .top-links a {
-    color: rgba(32,54,69,0.35); text-decoration: none;
-    font-size: 13px; font-weight: 500; transition: color 0.2s;
+    color: var(--link); text-decoration: none;
+    font-size: 13px; font-weight: 500;
+    transition: color var(--transition);
   }
-  .top-links a:hover { color: #203645; }
+  .top-links a:hover { color: var(--link-hover); }
+
+  /* Toggle */
+  .theme-toggle {
+    position: absolute; right: 20px;
+    background: var(--toggle-bg);
+    border: none; border-radius: 20px;
+    padding: 6px 10px;
+    cursor: pointer;
+    display: flex; align-items: center; gap: 6px;
+    transition: background var(--transition);
+  }
+  .theme-toggle svg {
+    width: 16px; height: 16px;
+    fill: var(--toggle-icon);
+    transition: fill var(--transition);
+  }
+  .theme-toggle .icon-sun { display: none; }
+  .theme-toggle .icon-moon { display: block; }
+  [data-theme="light"] .theme-toggle .icon-sun { display: block; }
+  [data-theme="light"] .theme-toggle .icon-moon { display: none; }
 
   .main {
     flex: 1; display: flex; flex-direction: column;
@@ -35,31 +124,31 @@
 
   .logo-mark {
     width: 88px; height: 88px; border-radius: 22px;
-    box-shadow: 0 4px 24px rgba(32,54,69,0.12);
+    box-shadow: var(--logo-shadow);
+    transition: box-shadow var(--transition);
   }
   .wordmark {
     font-family: 'Shrikhand', cursive;
-    font-size: 38px; color: #203645;
+    font-size: 38px; color: var(--text);
+    transition: color var(--transition);
   }
   .tagline {
-    font-size: 15px; color: rgba(32,54,69,0.4);
+    font-size: 15px; color: var(--text-muted);
     text-align: center; margin-top: -8px;
+    transition: color var(--transition);
   }
 
-  /* Coming soon badge */
   .coming-soon {
     display: inline-flex; align-items: center; gap: 8px;
-    background: #015974;
+    background: var(--badge-bg);
     color: #FAF8EA;
-    padding: 8px 20px;
-    border-radius: 20px;
-    font-size: 13px; font-weight: 600;
-    letter-spacing: 0.5px;
+    padding: 8px 20px; border-radius: 20px;
+    font-size: 13px; font-weight: 600; letter-spacing: 0.5px;
+    transition: background var(--transition);
   }
   .coming-soon .dot {
     width: 8px; height: 8px;
-    background: #F28C38;
-    border-radius: 50%;
+    background: #F28C38; border-radius: 50%;
     animation: pulse 2s infinite;
   }
   @keyframes pulse {
@@ -67,99 +156,91 @@
     50% { opacity: 0.5; transform: scale(0.8); }
   }
 
-  /* Waitlist form */
   .waitlist {
     display: flex; flex-direction: column;
     align-items: center; gap: 12px;
     width: 100%; max-width: 400px;
   }
   .waitlist-label {
-    font-size: 14px; color: rgba(32,54,69,0.5);
+    font-size: 14px; color: var(--text-muted);
+    transition: color var(--transition);
   }
-  .waitlist-form {
-    display: flex; gap: 8px; width: 100%;
-  }
+  .waitlist-form { display: flex; gap: 8px; width: 100%; }
   .waitlist-form input {
     flex: 1; padding: 14px 16px;
-    border: 1.5px solid rgba(32,54,69,0.12);
+    border: 1.5px solid var(--input-border);
     border-radius: 12px;
     font-family: 'Be Vietnam Pro', sans-serif;
-    font-size: 15px; color: #203645;
-    background: #fff;
+    font-size: 15px; color: var(--input-text);
+    background: var(--input-bg);
     outline: none;
-    transition: border-color 0.2s;
+    transition: border-color 0.2s, background var(--transition), color var(--transition);
   }
-  .waitlist-form input::placeholder { color: rgba(32,54,69,0.3); }
+  .waitlist-form input::placeholder { color: var(--input-placeholder); }
   .waitlist-form input:focus { border-color: #015974; }
   .waitlist-form button {
     padding: 14px 24px;
-    background: #F28C38;
-    color: #FAF8EA;
+    background: #F28C38; color: #FAF8EA;
     border: none; border-radius: 12px;
     font-family: 'Be Vietnam Pro', sans-serif;
     font-size: 15px; font-weight: 600;
-    cursor: pointer;
+    cursor: pointer; white-space: nowrap;
     transition: transform 0.2s, box-shadow 0.2s;
-    white-space: nowrap;
   }
   .waitlist-form button:hover {
     transform: translateY(-1px);
     box-shadow: 0 4px 16px rgba(242,140,56,0.4);
   }
 
-  /* Success state */
   .waitlist-success {
-    display: none;
-    text-align: center;
+    display: none; text-align: center;
     padding: 16px 24px;
-    background: rgba(1,89,116,0.08);
+    background: var(--success-bg);
     border-radius: 12px;
     width: 100%; max-width: 400px;
+    transition: background var(--transition);
   }
   .waitlist-success .check { font-size: 28px; margin-bottom: 4px; }
-  .waitlist-success p {
-    font-size: 14px; color: #015974; font-weight: 600;
-  }
-  .waitlist-success .sub {
-    font-size: 13px; color: rgba(32,54,69,0.45); font-weight: 400;
-    margin-top: 2px;
-  }
+  .waitlist-success p { font-size: 14px; color: var(--success-text); font-weight: 600; transition: color var(--transition); }
+  .waitlist-success .sub { font-size: 13px; color: var(--text-faint); font-weight: 400; margin-top: 2px; }
 
-  /* Blurred store buttons */
   .store-buttons-wrap {
-    position: relative;
     display: flex; gap: 12px; flex-wrap: wrap; justify-content: center;
   }
   .store-btn {
     display: inline-flex; align-items: center; gap: 10px;
-    padding: 12px 24px; border-radius: 12px; text-decoration: none;
+    padding: 12px 24px; border-radius: 12px;
     font-family: 'Be Vietnam Pro', sans-serif;
-    filter: blur(3px); opacity: 0.4;
-    pointer-events: none;
-    user-select: none;
+    filter: blur(3px); opacity: 0.25;
+    pointer-events: none; user-select: none;
   }
-  .store-btn--apple { background: #000; color: #fff; }
-  .store-btn--google { background: #fff; color: #3c4043; border: 1.5px solid #dadce0; }
+  .store-btn--apple {
+    background: var(--store-apple-bg); color: var(--store-apple-text);
+  }
+  .store-btn--apple svg { fill: var(--store-apple-icon); }
+  .store-btn--google {
+    background: var(--store-google-bg); color: var(--store-google-text);
+    border: 1.5px solid var(--store-google-border);
+  }
   .store-btn__text { display: flex; flex-direction: column; text-align: left; line-height: 1.2; }
   .store-btn__label { font-size: 10px; font-weight: 400; opacity: 0.7; }
   .store-btn__name { font-size: 16px; font-weight: 600; }
 
   .footer { text-align: center; padding: 16px 20px 20px; flex-shrink: 0; }
-  .footer p { font-size: 12px; color: rgba(32,54,69,0.2); }
+  .footer p { font-size: 12px; color: var(--text-ghost); transition: color var(--transition); }
 
-  /* Legal pages */
   .legal-page {
     display: none; flex: 1; padding: 0 24px 40px;
     max-width: 680px; margin: 0 auto; overflow-y: auto;
   }
   .legal-page.active { display: block; }
-  .legal-page h1 { font-family: 'Shrikhand', cursive; font-size: 28px; color: #203645; margin-bottom: 4px; }
-  .legal-page .date { font-size: 12px; color: rgba(32,54,69,0.35); margin-bottom: 24px; }
-  .legal-page h2 { font-size: 16px; font-weight: 700; color: #203645; margin-top: 24px; margin-bottom: 8px; }
-  .legal-page p, .legal-page li { font-size: 14px; line-height: 1.7; color: rgba(32,54,69,0.6); margin-bottom: 10px; }
+  .legal-page h1 { font-family: 'Shrikhand', cursive; font-size: 28px; color: var(--text); margin-bottom: 4px; }
+  .legal-page .date { font-size: 12px; color: var(--text-faint); margin-bottom: 24px; }
+  .legal-page h2 { font-size: 16px; font-weight: 700; color: var(--text); margin-top: 24px; margin-bottom: 8px; }
+  .legal-page p, .legal-page li { font-size: 14px; line-height: 1.7; color: var(--text-muted); margin-bottom: 10px; }
   .legal-page ul { padding-left: 20px; }
-  .legal-page a { color: #015974; }
-  .back-link { display: inline-block; font-size: 13px; font-weight: 600; color: #015974; text-decoration: none; margin-bottom: 20px; }
+  .legal-page a { color: var(--legal-link); }
+  .back-link { display: inline-block; font-size: 13px; font-weight: 600; color: var(--legal-link); text-decoration: none; margin-bottom: 20px; }
   .back-link:hover { text-decoration: underline; }
 
   @media (max-width: 480px) {
@@ -170,24 +251,25 @@
 </head>
 <body>
 
-<div class="top-links">
-  <a href="#" onclick="showHome(); return false;">Home</a>
-  <a href="mailto:support@wavecheck.surf">Contact</a>
-  <a href="#" onclick="showPage('privacy'); return false;">Privacy</a>
-  <a href="#" onclick="showPage('terms'); return false;">Terms</a>
+<div class="top-bar">
+  <div class="top-links">
+    <a href="#" onclick="showHome(); return false;">Home</a>
+    <a href="mailto:support@wavecheck.surf">Contact</a>
+    <a href="#" onclick="showPage('privacy'); return false;">Privacy</a>
+    <a href="#" onclick="showPage('terms'); return false;">Terms</a>
+  </div>
+  <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+    <svg class="icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z"/></svg>
+    <svg class="icon-sun" viewBox="0 0 24 24"><path d="M12 17a5 5 0 100-10 5 5 0 000 10zm0-14v2m0 14v2m7.07-16.07l-1.41 1.41M6.34 17.66l-1.41 1.41M21 12h-2M5 12H3m16.07 7.07l-1.41-1.41M6.34 6.34L4.93 4.93"/><circle cx="12" cy="12" r="5"/></svg>
+  </button>
 </div>
 
 <div class="main" id="main-content">
   <img src="splash_logo.png" class="logo-mark" alt="WaveCheck">
   <div class="wordmark">WaveCheck</div>
   <p class="tagline">Your personal surf forecast</p>
+  <div class="coming-soon"><span class="dot"></span> Coming Soon</div>
 
-  <div class="coming-soon">
-    <span class="dot"></span>
-    Coming Soon
-  </div>
-
-  <!-- Waitlist -->
   <div class="waitlist" id="waitlist">
     <p class="waitlist-label">Get notified when we launch</p>
     <div class="waitlist-form" id="waitlist-form">
@@ -196,17 +278,15 @@
     </div>
   </div>
 
-  <!-- Success message (hidden by default) -->
   <div class="waitlist-success" id="waitlist-success">
     <div class="check">🤙</div>
     <p>You're on the list!</p>
     <p class="sub">We'll let you know when WaveCheck is ready</p>
   </div>
 
-  <!-- Blurred store buttons -->
   <div class="store-buttons-wrap">
     <div class="store-btn store-btn--apple">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.32 2.32-1.55 4.3-3.74 4.25z"/></svg>
+      <svg width="22" height="22" viewBox="0 0 24 24"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.32 2.32-1.55 4.3-3.74 4.25z"/></svg>
       <div class="store-btn__text"><span class="store-btn__label">Download on the</span><span class="store-btn__name">App Store</span></div>
     </div>
     <div class="store-btn store-btn--google">
@@ -216,36 +296,23 @@
   </div>
 </div>
 
-<!-- Privacy page -->
 <div id="privacy-page" class="legal-page">
   <a href="#" class="back-link" onclick="showHome(); return false;">← Back</a>
   <h1>Privacy Policy</h1>
   <p class="date">Effective: December 7, 2025</p>
   <p>This privacy policy applies to the WaveCheck app for mobile devices, developed by Austin Urraca as a Freemium service provided "AS IS".</p>
-  <h2>Information You Provide</h2>
-  <p>The app acquires information you supply when you register. Registration is not mandatory, but some features require it.</p>
-  <h2>Automatically Collected Information</h2>
-  <p>The app may collect device type, unique device ID, IP address, mobile OS, browser type, and usage patterns.</p>
-  <h2>Location Data</h2>
-  <p>The app collects your device's location to provide personalized content, relevant recommendations, and location-based services.</p>
-  <h2>Artificial Intelligence</h2>
-  <p>The app does not use AI technologies to process your data.</p>
+  <h2>Information You Provide</h2><p>The app acquires information you supply when you register. Registration is not mandatory, but some features require it.</p>
+  <h2>Automatically Collected Information</h2><p>The app may collect device type, unique device ID, IP address, mobile OS, browser type, and usage patterns.</p>
+  <h2>Location Data</h2><p>The app collects your device's location to provide personalized content, relevant recommendations, and location-based services.</p>
+  <h2>Artificial Intelligence</h2><p>The app does not use AI technologies to process your data.</p>
   <h2>Third-Party Services</h2>
-  <ul>
-    <li><a href="https://www.google.com/policies/privacy/" target="_blank">Google Play Services</a></li>
-    <li><a href="https://www.mapbox.com/legal/privacy" target="_blank">Mapbox</a></li>
-  </ul>
-  <h2>Opt-Out</h2>
-  <p>You can stop all data collection by uninstalling the app.</p>
-  <h2>Data Retention &amp; Deletion</h2>
-  <p>User-provided data is retained while you use the app. Automatically collected data is retained for up to 24 months. To request deletion, contact <a href="mailto:support@wavecheck.surf">support@wavecheck.surf</a>.</p>
-  <h2>Children's Privacy</h2>
-  <p>We do not knowingly collect data from children under 13.</p>
-  <h2>Contact</h2>
-  <p><a href="mailto:support@wavecheck.surf">support@wavecheck.surf</a></p>
+  <ul><li><a href="https://www.google.com/policies/privacy/" target="_blank">Google Play Services</a></li><li><a href="https://www.mapbox.com/legal/privacy" target="_blank">Mapbox</a></li></ul>
+  <h2>Opt-Out</h2><p>You can stop all data collection by uninstalling the app.</p>
+  <h2>Data Retention &amp; Deletion</h2><p>User-provided data is retained while you use the app. Automatically collected data is retained for up to 24 months. To request deletion, contact <a href="mailto:support@wavecheck.surf">support@wavecheck.surf</a>.</p>
+  <h2>Children's Privacy</h2><p>We do not knowingly collect data from children under 13.</p>
+  <h2>Contact</h2><p><a href="mailto:support@wavecheck.surf">support@wavecheck.surf</a></p>
 </div>
 
-<!-- Terms page -->
 <div id="terms-page" class="legal-page">
   <a href="#" class="back-link" onclick="showHome(); return false;">← Back</a>
   <h1>Terms &amp; Conditions</h1>
@@ -253,21 +320,23 @@
   <p>These terms apply to the WaveCheck app, created by Austin Urraca as a Freemium service. By using the app, you agree to these terms.</p>
   <p>Unauthorized copying, modification, or extraction of source code is prohibited. All intellectual property rights remain with the developer.</p>
   <h2>Third-Party Services</h2>
-  <ul>
-    <li><a href="https://policies.google.com/terms" target="_blank">Google Play Services</a></li>
-    <li><a href="https://www.mapbox.com/legal/tos" target="_blank">Mapbox</a></li>
-  </ul>
-  <h2>Liability</h2>
-  <p>We rely on third parties for forecast data and accept no liability for losses from relying on this information. Always exercise personal judgment when surfing.</p>
-  <h2>Updates &amp; Termination</h2>
-  <p>We may update or discontinue the app at any time. Upon termination, your rights and licenses end.</p>
-  <h2>Contact</h2>
-  <p><a href="mailto:support@wavecheck.surf">support@wavecheck.surf</a></p>
+  <ul><li><a href="https://policies.google.com/terms" target="_blank">Google Play Services</a></li><li><a href="https://www.mapbox.com/legal/tos" target="_blank">Mapbox</a></li></ul>
+  <h2>Liability</h2><p>We rely on third parties for forecast data and accept no liability for losses from relying on this information. Always exercise personal judgment when surfing.</p>
+  <h2>Updates &amp; Termination</h2><p>We may update or discontinue the app at any time. Upon termination, your rights and licenses end.</p>
+  <h2>Contact</h2><p><a href="mailto:support@wavecheck.surf">support@wavecheck.surf</a></p>
 </div>
 
 <div class="footer"><p>© 2025 WaveCheck · Made with ❤️ in Ferrel, Portugal</p></div>
 
 <script>
+function toggleTheme() {
+  const html = document.documentElement;
+  const current = html.getAttribute('data-theme');
+  const next = current === 'dark' ? 'light' : 'dark';
+  html.setAttribute('data-theme', next);
+  document.getElementById('theme-color-meta').content = next === 'dark' ? '#203645' : '#FAF8EA';
+}
+
 function showHome() {
   document.getElementById('main-content').style.display = 'flex';
   document.getElementById('privacy-page').classList.remove('active');
@@ -286,28 +355,16 @@ if (window.location.pathname === '/terms') showPage('terms');
 function submitEmail() {
   const input = document.getElementById('email-input');
   const email = input.value.trim();
-  if (!email || !email.includes('@')) {
-    input.style.borderColor = '#ef4444';
-    return;
-  }
-
-  // Send to Resend via your backend, or store in a simple way
-  // For now: send an email notification to yourself
+  if (!email || !email.includes('@')) { input.style.borderColor = '#ef4444'; return; }
   fetch('https://formspree.io/f/xwvnqbov', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ email: email })
-  }).then(() => {
-    // Show success regardless (don't leak if endpoint fails)
-  }).catch(() => {});
-
-  // Show success
+  }).then(() => {}).catch(() => {});
   document.getElementById('waitlist-form').style.display = 'none';
   document.querySelector('.waitlist-label').style.display = 'none';
   document.getElementById('waitlist-success').style.display = 'block';
 }
-
-// Enter key submits
 document.getElementById('email-input').addEventListener('keydown', function(e) {
   if (e.key === 'Enter') submitEmail();
 });
