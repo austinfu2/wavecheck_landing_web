@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>WaveCheck — Surf Forecast App</title>
-<meta name="description" content="Personalized surf forecasts for 125+ spots. Join the waitlist for WaveCheck on iOS and Android.">
+<meta name="description" content="Personalized surf forecasts. WaveCheck on iOS and Android.">
 <link rel="icon" type="image/png" href="splash_logo.png">
 <meta name="theme-color" content="#203645" id="theme-color-meta">
 <link href="https://fonts.googleapis.com/css2?family=Shrikhand&family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -39,6 +39,7 @@
     --store-google-text: #FAF8EA;
     --store-google-border: rgba(250,248,234,0.15);
     --legal-link: #79CBD3;
+    --logo-bg: #FAF8EA;
     --logo-shadow: 0 4px 32px rgba(0,0,0,0.3);
     --toggle-bg: rgba(250,248,234,0.1);
     --toggle-icon: #FAF8EA;
@@ -67,6 +68,7 @@
     --store-google-text: #3c4043;
     --store-google-border: #dadce0;
     --legal-link: #015974;
+    --logo-bg: #203645;
     --logo-shadow: 0 4px 24px rgba(32,54,69,0.12);
     --toggle-bg: rgba(32,54,69,0.08);
     --toggle-icon: #203645;
@@ -126,6 +128,7 @@
     width: 88px; height: 88px; border-radius: 22px;
     box-shadow: var(--logo-shadow);
     transition: box-shadow var(--transition);
+    background: var(--logo-bg);
   }
   .wordmark {
     font-family: 'Shrikhand', cursive;
@@ -267,7 +270,7 @@
 <div class="main" id="main-content">
   <img src="splash_logo.png" class="logo-mark" alt="WaveCheck">
   <div class="wordmark">WaveCheck</div>
-  <p class="tagline">Your personal surf forecast</p>
+  <p class="tagline">Your personal surf guide</p>
   <div class="coming-soon"><span class="dot"></span> Coming Soon</div>
 
   <div class="waitlist" id="waitlist">
@@ -326,7 +329,14 @@
   <h2>Contact</h2><p><a href="mailto:support@wavecheck.surf">support@wavecheck.surf</a></p>
 </div>
 
-<div class="footer"><p>© 2025 WaveCheck · Made with ❤️ in Ferrel, Portugal</p></div>
+<div class="footer">
+  <div style="display:flex; justify-content:center; gap:20px; margin-bottom:8px;">
+    <a href="mailto:support@wavecheck.surf" style="color:var(--text-faint); text-decoration:none; font-size:12px; transition:color 0.2s;">Contact</a>
+    <a href="#" onclick="showPage('privacy'); return false;" style="color:var(--text-faint); text-decoration:none; font-size:12px; transition:color 0.2s;">Privacy</a>
+    <a href="#" onclick="showPage('terms'); return false;" style="color:var(--text-faint); text-decoration:none; font-size:12px; transition:color 0.2s;">Terms</a>
+  </div>
+  <p>© 2026 WaveCheck · Made with ❤️ in Ferrel, Portugal</p>
+</div>
 
 <script>
 function toggleTheme() {
