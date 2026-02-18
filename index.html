@@ -11,73 +11,44 @@
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html, body { height: 100%; }
+  :root { --transition: 0.35s ease; }
 
-  :root {
-    --transition: 0.35s ease;
-  }
-
-  /* ═══ DARK THEME ═══ */
   [data-theme="dark"] {
-    --bg: #203645;
-    --text: #FAF8EA;
-    --text-muted: rgba(250,248,234,0.4);
-    --text-faint: rgba(250,248,234,0.3);
+    --bg: #203645; --text: #FAF8EA;
+    --text-muted: rgba(250,248,234,0.4); --text-faint: rgba(250,248,234,0.3);
     --text-ghost: rgba(250,248,234,0.15);
-    --link: rgba(250,248,234,0.3);
-    --link-hover: rgba(250,248,234,0.7);
+    --link: rgba(250,248,234,0.3); --link-hover: rgba(250,248,234,0.7);
     --badge-bg: rgba(1,89,116,0.5);
-    --input-bg: rgba(250,248,234,0.06);
-    --input-border: rgba(250,248,234,0.12);
-    --input-text: #FAF8EA;
-    --input-placeholder: rgba(250,248,234,0.25);
-    --success-bg: rgba(1,89,116,0.2);
-    --success-text: #79CBD3;
-    --store-apple-bg: #fff;
-    --store-apple-text: #000;
-    --store-apple-icon: #000;
-    --store-google-bg: rgba(250,248,234,0.1);
-    --store-google-text: #FAF8EA;
+    --input-bg: rgba(250,248,234,0.06); --input-border: rgba(250,248,234,0.12);
+    --input-text: #FAF8EA; --input-placeholder: rgba(250,248,234,0.25);
+    --success-bg: rgba(1,89,116,0.2); --success-text: #79CBD3;
+    --store-apple-bg: #fff; --store-apple-text: #000; --store-apple-icon: #000;
+    --store-google-bg: rgba(250,248,234,0.1); --store-google-text: #FAF8EA;
     --store-google-border: rgba(250,248,234,0.15);
-    --legal-link: #79CBD3;
-    --logo-bg: #FAF8EA;
+    --legal-link: #79CBD3; --logo-bg: #FAF8EA;
     --logo-shadow: 0 4px 32px rgba(0,0,0,0.3);
-    --toggle-bg: rgba(250,248,234,0.1);
-    --toggle-icon: #FAF8EA;
+    --toggle-bg: rgba(250,248,234,0.1); --toggle-icon: #FAF8EA;
   }
-
-  /* ═══ LIGHT THEME ═══ */
   [data-theme="light"] {
-    --bg: #FAF8EA;
-    --text: #203645;
-    --text-muted: rgba(32,54,69,0.4);
-    --text-faint: rgba(32,54,69,0.35);
+    --bg: #FAF8EA; --text: #203645;
+    --text-muted: rgba(32,54,69,0.4); --text-faint: rgba(32,54,69,0.35);
     --text-ghost: rgba(32,54,69,0.2);
-    --link: rgba(32,54,69,0.35);
-    --link-hover: #203645;
+    --link: rgba(32,54,69,0.35); --link-hover: #203645;
     --badge-bg: #015974;
-    --input-bg: #fff;
-    --input-border: rgba(32,54,69,0.12);
-    --input-text: #203645;
-    --input-placeholder: rgba(32,54,69,0.3);
-    --success-bg: rgba(1,89,116,0.08);
-    --success-text: #015974;
-    --store-apple-bg: #000;
-    --store-apple-text: #fff;
-    --store-apple-icon: #fff;
-    --store-google-bg: #fff;
-    --store-google-text: #3c4043;
+    --input-bg: #fff; --input-border: rgba(32,54,69,0.12);
+    --input-text: #203645; --input-placeholder: rgba(32,54,69,0.3);
+    --success-bg: rgba(1,89,116,0.08); --success-text: #015974;
+    --store-apple-bg: #000; --store-apple-text: #fff; --store-apple-icon: #fff;
+    --store-google-bg: #fff; --store-google-text: #3c4043;
     --store-google-border: #dadce0;
-    --legal-link: #015974;
-    --logo-bg: #203645;
+    --legal-link: #015974; --logo-bg: #203645;
     --logo-shadow: 0 4px 24px rgba(32,54,69,0.12);
-    --toggle-bg: rgba(32,54,69,0.08);
-    --toggle-icon: #203645;
+    --toggle-bg: rgba(32,54,69,0.08); --toggle-icon: #203645;
   }
 
   body {
     font-family: 'Be Vietnam Pro', sans-serif;
-    background: var(--bg);
-    color: var(--text);
+    background: var(--bg); color: var(--text);
     display: flex; flex-direction: column;
     min-height: 100vh; min-height: 100dvh;
     transition: background var(--transition), color var(--transition);
@@ -87,31 +58,13 @@
     display: flex; justify-content: flex-end;
     padding: 16px 20px; flex-shrink: 0;
   }
-  .top-links {
-    display: flex; gap: 24px;
-  }
-  .top-links a {
-    color: var(--link); text-decoration: none;
-    font-size: 13px; font-weight: 500;
-    transition: color var(--transition);
-  }
-  .top-links a:hover { color: var(--link-hover); }
-
-  /* Toggle */
   .theme-toggle {
-    position: absolute; right: 20px;
-    background: var(--toggle-bg);
-    border: none; border-radius: 20px;
-    padding: 6px 10px;
-    cursor: pointer;
+    background: var(--toggle-bg); border: none; border-radius: 20px;
+    padding: 6px 10px; cursor: pointer;
     display: flex; align-items: center; gap: 6px;
     transition: background var(--transition);
   }
-  .theme-toggle svg {
-    width: 16px; height: 16px;
-    fill: var(--toggle-icon);
-    transition: fill var(--transition);
-  }
+  .theme-toggle svg { width: 16px; height: 16px; fill: var(--toggle-icon); transition: fill var(--transition); }
   .theme-toggle .icon-sun { display: none; }
   .theme-toggle .icon-moon { display: block; }
   [data-theme="light"] .theme-toggle .icon-sun { display: block; }
@@ -125,32 +78,29 @@
 
   .logo-mark {
     width: 88px; height: 88px; border-radius: 22px;
-    box-shadow: var(--logo-shadow);
+    box-shadow: var(--logo-shadow); background: var(--logo-bg);
     transition: box-shadow var(--transition);
-    background: var(--logo-bg);
   }
+  .brand-group { text-align: center; margin-top: -4px; }
   .wordmark {
-    font-family: 'Shrikhand', cursive;
-    font-size: 38px; color: var(--text);
-    transition: color var(--transition);
+    font-family: 'Shrikhand', cursive; font-size: 38px;
+    color: var(--text); transition: color var(--transition);
   }
   .tagline {
     font-size: 15px; color: var(--text-muted);
-    text-align: center; margin-top: -12px;
-    transition: color var(--transition);
+    margin-top: 2px; transition: color var(--transition);
   }
 
   .coming-soon {
     display: inline-flex; align-items: center; gap: 8px;
-    background: var(--badge-bg);
-    color: #FAF8EA;
+    background: var(--badge-bg); color: #FAF8EA;
     padding: 8px 20px; border-radius: 20px;
     font-size: 13px; font-weight: 600; letter-spacing: 0.5px;
+    margin-top: 10px;
     transition: background var(--transition);
   }
   .coming-soon .dot {
-    width: 8px; height: 8px;
-    background: #F28C38; border-radius: 50%;
+    width: 8px; height: 8px; background: #F28C38; border-radius: 50%;
     animation: pulse 2s infinite;
   }
   @keyframes pulse {
@@ -163,82 +113,54 @@
     align-items: center; gap: 12px;
     width: 100%; max-width: 400px;
   }
-  .waitlist-label {
-    font-size: 14px; color: var(--text-muted);
-    transition: color var(--transition);
-  }
+  .waitlist-label { font-size: 14px; color: var(--text-muted); transition: color var(--transition); }
   .waitlist-form { display: flex; gap: 8px; width: 100%; }
   .waitlist-form input {
     flex: 1; padding: 14px 16px;
-    border: 1.5px solid var(--input-border);
-    border-radius: 12px;
-    font-family: 'Be Vietnam Pro', sans-serif;
-    font-size: 15px; color: var(--input-text);
-    background: var(--input-bg);
-    outline: none;
+    border: 1.5px solid var(--input-border); border-radius: 12px;
+    font-family: 'Be Vietnam Pro', sans-serif; font-size: 15px;
+    color: var(--input-text); background: var(--input-bg); outline: none;
     transition: border-color 0.2s, background var(--transition), color var(--transition);
   }
   .waitlist-form input::placeholder { color: var(--input-placeholder); }
   .waitlist-form input:focus { border-color: #015974; }
   .waitlist-form button {
-    padding: 14px 24px;
-    background: #F28C38; color: #FAF8EA;
+    padding: 14px 24px; background: #F28C38; color: #FAF8EA;
     border: none; border-radius: 12px;
-    font-family: 'Be Vietnam Pro', sans-serif;
-    font-size: 15px; font-weight: 600;
+    font-family: 'Be Vietnam Pro', sans-serif; font-size: 15px; font-weight: 600;
     cursor: pointer; white-space: nowrap;
     transition: transform 0.2s, box-shadow 0.2s;
   }
-  .waitlist-form button:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 4px 16px rgba(242,140,56,0.4);
-  }
+  .waitlist-form button:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(242,140,56,0.4); }
 
   .waitlist-success {
-    display: none; text-align: center;
-    padding: 16px 24px;
-    background: var(--success-bg);
-    border-radius: 12px;
-    width: 100%; max-width: 400px;
-    transition: background var(--transition);
+    display: none; text-align: center; padding: 16px 24px;
+    background: var(--success-bg); border-radius: 12px;
+    width: 100%; max-width: 400px; transition: background var(--transition);
   }
   .waitlist-success .check { font-size: 28px; margin-bottom: 4px; }
-  .waitlist-success p { font-size: 14px; color: var(--success-text); font-weight: 600; transition: color var(--transition); }
+  .waitlist-success p { font-size: 14px; color: var(--success-text); font-weight: 600; }
   .waitlist-success .sub { font-size: 13px; color: var(--text-faint); font-weight: 400; margin-top: 2px; }
 
   .store-buttons-wrap {
-    display: flex; gap: 12px; flex-wrap: wrap; justify-content: center;
-    position: relative;
+    display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; position: relative;
   }
   .store-overlay {
-    position: absolute;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 2;
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%); z-index: 2;
     display: flex; flex-direction: column; align-items: center; gap: 0;
     pointer-events: none;
   }
-  .store-overlay span {
-    font-size: 10px; font-weight: 700;
-    color: var(--text-muted);
-    letter-spacing: 1px;
-    text-transform: uppercase;
-  }
+  .store-overlay span { font-size: 10px; font-weight: 700; color: var(--text-muted); letter-spacing: 1px; text-transform: uppercase; }
   .store-btn {
     display: inline-flex; align-items: center; gap: 10px;
     padding: 12px 24px; border-radius: 12px;
     font-family: 'Be Vietnam Pro', sans-serif;
-    filter: blur(3px); opacity: 0.25;
-    pointer-events: none; user-select: none;
+    filter: blur(3px); opacity: 0.25; pointer-events: none; user-select: none;
   }
-  .store-btn--apple {
-    background: var(--store-apple-bg); color: var(--store-apple-text);
-  }
+  .store-btn--apple { background: var(--store-apple-bg); color: var(--store-apple-text); }
   .store-btn--apple svg { fill: var(--store-apple-icon); }
-  .store-btn--google {
-    background: var(--store-google-bg); color: var(--store-google-text);
-    border: 1.5px solid var(--store-google-border);
-  }
+  .store-btn--google { background: var(--store-google-bg); color: var(--store-google-text); border: 1.5px solid var(--store-google-border); }
   .store-btn__text { display: flex; flex-direction: column; text-align: left; line-height: 1.2; }
   .store-btn__label { font-size: 10px; font-weight: 400; opacity: 0.7; }
   .store-btn__name { font-size: 16px; font-weight: 600; }
@@ -246,10 +168,7 @@
   .footer { text-align: center; padding: 16px 20px 20px; flex-shrink: 0; }
   .footer p { font-size: 12px; color: var(--text-ghost); transition: color var(--transition); }
 
-  .legal-page {
-    display: none; flex: 1; padding: 0 24px 40px;
-    max-width: 680px; margin: 0 auto; overflow-y: auto;
-  }
+  .legal-page { display: none; flex: 1; padding: 0 24px 40px; max-width: 680px; margin: 0 auto; overflow-y: auto; }
   .legal-page.active { display: block; }
   .legal-page h1 { font-family: 'Shrikhand', cursive; font-size: 28px; color: var(--text); margin-bottom: 4px; }
   .legal-page .date { font-size: 12px; color: var(--text-faint); margin-bottom: 24px; }
@@ -269,7 +188,7 @@
 <body>
 
 <div class="top-bar">
-  <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme" style="position:static;">
+  <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
     <svg class="icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z"/></svg>
     <svg class="icon-sun" viewBox="0 0 24 24"><path d="M12 17a5 5 0 100-10 5 5 0 000 10zm0-14v2m0 14v2m7.07-16.07l-1.41 1.41M6.34 17.66l-1.41 1.41M21 12h-2M5 12H3m16.07 7.07l-1.41-1.41M6.34 6.34L4.93 4.93"/><circle cx="12" cy="12" r="5"/></svg>
   </button>
@@ -277,8 +196,10 @@
 
 <div class="main" id="main-content">
   <img src="splash_logo.png" class="logo-mark" alt="WaveCheck">
-  <div class="wordmark">WaveCheck</div>
-  <p class="tagline">Your personal surf guide</p>
+  <div class="brand-group">
+    <div class="wordmark">WaveCheck</div>
+    <p class="tagline">Your personal surf guide</p>
+  </div>
   <div class="coming-soon"><span class="dot"></span> Coming Soon</div>
 
   <div class="waitlist" id="waitlist">
@@ -353,12 +274,10 @@
 <script>
 function toggleTheme() {
   const html = document.documentElement;
-  const current = html.getAttribute('data-theme');
-  const next = current === 'dark' ? 'light' : 'dark';
+  const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
   html.setAttribute('data-theme', next);
   document.getElementById('theme-color-meta').content = next === 'dark' ? '#203645' : '#FAF8EA';
 }
-
 function showHome() {
   document.getElementById('main-content').style.display = 'flex';
   document.getElementById('privacy-page').classList.remove('active');
