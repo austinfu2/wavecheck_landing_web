@@ -1,0 +1,11 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "ST7J8R4AK6.com.austin.wavecheckfrontend",
+        "paths": ["/spot/*", "/forecast/*"]
+      }
+    ]
+  }
+}
