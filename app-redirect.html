@@ -1,161 +1,122 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WaveCheck — Surf Forecasts</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>WaveCheck — Open in App</title>
+<meta name="description" content="View this surf forecast in WaveCheck. Personalized surf forecasts for 1,000+ spots across Europe.">
+<link rel="icon" type="image/png" href="/splash_logo.png">
+<meta name="theme-color" content="#203645">
 
-    <!-- Open Graph for social sharing previews -->
-    <meta property="og:title" content="WaveCheck — Surf Forecasts" />
-    <meta property="og:description" content="Real-time surf conditions, personalized forecasts, and session tracking for 1,000+ spots across Europe." />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://wavecheck.surf" />
-    <meta property="og:image" content="https://wavecheck.surf/og-image.png" />
+<!-- Open Graph for link previews -->
+<meta property="og:title" content="WaveCheck — Surf Forecast" />
+<meta property="og:description" content="View this surf forecast in WaveCheck. Real-time conditions for 1,000+ spots across Europe." />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="https://wavecheck.surf/splash_logo.png" />
 
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="WaveCheck — Surf Forecasts" />
-    <meta name="twitter:description" content="Real-time surf conditions, personalized forecasts, and session tracking." />
+<link href="https://fonts.googleapis.com/css2?family=Shrikhand&family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { height: 100%; }
 
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    background: #203645; color: #FAF8EA;
+    display: flex; flex-direction: column;
+    min-height: 100vh; min-height: 100dvh;
+  }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: #203645;
-            color: #FAF8EA;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+  .main {
+    flex: 1; display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    padding: 0 24px 20px; gap: 18px;
+  }
 
-        .container {
-            text-align: center;
-            padding: 40px 24px;
-            max-width: 400px;
-        }
+  .logo-mark {
+    width: 88px; height: 88px; border-radius: 22px;
+    box-shadow: 0 4px 32px rgba(0,0,0,0.3); background: #FAF8EA;
+  }
 
-        .logo {
-            font-family: 'Georgia', serif;
-            font-size: 36px;
-            font-weight: 900;
-            letter-spacing: -1px;
-            margin-bottom: 8px;
-        }
+  .brand-group { text-align: center; margin-top: -4px; }
+  .wordmark {
+    font-family: 'Shrikhand', cursive; font-size: 38px; color: #FAF8EA;
+  }
+  .tagline {
+    font-size: 15px; color: rgba(250,248,234,0.4); margin-top: 2px;
+  }
 
-        .tagline {
-            font-size: 16px;
-            opacity: 0.6;
-            margin-bottom: 40px;
-        }
+  .open-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(1,89,116,0.5); color: #FAF8EA;
+    padding: 8px 20px; border-radius: 20px;
+    font-size: 13px; font-weight: 600; letter-spacing: 0.5px;
+    margin-top: 10px;
+  }
 
-        .wave-icon {
-            font-size: 64px;
-            margin-bottom: 24px;
-        }
+  .message {
+    text-align: center; max-width: 320px;
+  }
+  .message p {
+    font-size: 14px; color: rgba(250,248,234,0.4); line-height: 1.6;
+  }
 
-        .message {
-            font-size: 20px;
-            font-weight: 700;
-            margin-bottom: 8px;
-        }
+  .store-buttons {
+    display: flex; gap: 12px; flex-wrap: wrap; justify-content: center;
+    margin-top: 8px;
+  }
+  .store-btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 12px 24px; border-radius: 12px;
+    font-family: 'Be Vietnam Pro', sans-serif;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .store-btn:hover { transform: translateY(-1px); }
+  .store-btn--apple { background: #fff; color: #000; }
+  .store-btn--google { background: rgba(250,248,234,0.1); color: #FAF8EA; border: 1.5px solid rgba(250,248,234,0.15); }
+  .store-btn__text { display: flex; flex-direction: column; text-align: left; line-height: 1.2; }
+  .store-btn__label { font-size: 10px; font-weight: 400; opacity: 0.7; }
+  .store-btn__name { font-size: 16px; font-weight: 600; }
 
-        .sub-message {
-            font-size: 14px;
-            opacity: 0.5;
-            margin-bottom: 32px;
-            line-height: 1.5;
-        }
+  .footer { text-align: center; padding: 16px 20px 20px; }
+  .footer p { font-size: 12px; color: rgba(250,248,234,0.15); }
+</style>
 
-        .store-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            align-items: center;
-        }
-
-        .store-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            width: 220px;
-            padding: 14px 24px;
-            border-radius: 14px;
-            text-decoration: none;
-            font-size: 16px;
-            font-weight: 600;
-            transition: transform 0.15s ease, opacity 0.15s ease;
-        }
-
-        .store-btn:active { transform: scale(0.97); }
-
-        .store-btn-apple {
-            background: #FAF8EA;
-            color: #203645;
-        }
-
-        .store-btn-google {
-            background: transparent;
-            color: #FAF8EA;
-            border: 1.5px solid rgba(250, 248, 234, 0.25);
-        }
-
-        .store-btn svg { width: 22px; height: 22px; }
-
-        .footer {
-            margin-top: 48px;
-            font-size: 12px;
-            opacity: 0.3;
-        }
-    </style>
-
-    <script>
-        // Try to open the app via custom URL scheme
-        (function() {
-            var path = window.location.pathname; // e.g., /spot/61 or /forecast/123
-            var appUrl = 'wavecheck:/' + path;
-
-            // Attempt to open the app
-            var timeout = setTimeout(function() {
-                // App didn't open — user stays on this page
-            }, 1500);
-
-            window.addEventListener('blur', function() {
-                clearTimeout(timeout);
-            });
-
-            // Try opening the app
-            window.location.href = appUrl;
-        })();
-    </script>
+<script>
+  // Universal Links handle app opening automatically.
+  // This page only shows when the app is NOT installed.
+</script>
 </head>
 <body>
-    <div class="container">
-        <div class="logo">Wavecheck</div>
-        <div class="tagline">Surf Forecasts & Session Tracking</div>
 
-        <div class="wave-icon">🌊</div>
+<div class="main">
+  <img src="/splash_logo.png" class="logo-mark" alt="WaveCheck">
+  <div class="brand-group">
+    <div class="wordmark">WaveCheck</div>
+    <p class="tagline">Your personal surf guide</p>
+  </div>
 
-        <div class="message">Open in WaveCheck</div>
-        <div class="sub-message">
-            Get real-time surf conditions, personalized forecasts, and track your sessions across 1,000+ spots.
-        </div>
+  <div class="open-badge">🏄 Open in WaveCheck</div>
 
-        <div class="store-buttons">
-            <a href="https://apps.apple.com/app/wavecheck/idYOUR_APP_ID" class="store-btn store-btn-apple">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-                App Store
-            </a>
-            <a href="https://play.google.com/store/apps/details?id=com.wavecheck.app" class="store-btn store-btn-google">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 20.5v-17c0-.59.34-1.11.84-1.35L13.69 12l-9.85 9.85c-.5-.24-.84-.76-.84-1.35zm13.81-5.38L6.05 21.34l8.49-8.49 2.27 2.27zm.91-.91L19.59 12l-1.87-2.21-2.27 2.27 2.27 2.15zM6.05 2.66l10.76 6.22-2.27 2.27-8.49-8.49z"/></svg>
-                Google Play
-            </a>
-        </div>
+  <div class="message">
+    <p>Download WaveCheck to view live surf forecasts, track sessions, and get personalized alerts for 1,000+ spots across Europe.</p>
+  </div>
 
-        <div class="footer">© 2026 WaveCheck</div>
-    </div>
+  <div class="store-buttons">
+    <a href="https://apps.apple.com/app/wavecheck/idYOUR_APP_ID" class="store-btn store-btn--apple">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="#000"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.32 2.32-1.55 4.3-3.74 4.25z"/></svg>
+      <div class="store-btn__text"><span class="store-btn__label">Download on the</span><span class="store-btn__name">App Store</span></div>
+    </a>
+    <a href="https://play.google.com/store/apps/details?id=com.wavecheck.app" class="store-btn store-btn--google">
+      <svg width="22" height="22" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+      <div class="store-btn__text"><span class="store-btn__label">Get it on</span><span class="store-btn__name">Google Play</span></div>
+    </a>
+  </div>
+</div>
+
+<div class="footer">
+  <p>© 2026 WaveCheck · Made with ❤️ in Ferrel, Portugal</p>
+</div>
+
 </body>
 </html>
-app-redirect.html 
