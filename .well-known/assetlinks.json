@@ -1,0 +1,10 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.wavecheck.app",
+      "sha256_cert_fingerprints": ["93:40:2A:D2:16:97:B9:F6:17:65:C9:62:21:80:29:B5:E2:00:8A:AE:FC:83:47:F0:6A:C9:B2:7D:FE:52:D5:6A"]
+    }
+  }
+]
