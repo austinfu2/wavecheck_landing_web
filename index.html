@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>WaveCheck — Surf Forecast App</title>
-<meta name="description" content="Personalized surf forecasts. WaveCheck on iOS and Android.">
+<title>WaveCheck — Your Personal Surf Guide</title>
+<meta name="description" content="Personalized surf forecasts for every break. Download WaveCheck on iOS and Android.">
 <link rel="icon" type="image/png" href="splash_logo.png">
 <meta name="theme-color" content="#203645" id="theme-color-meta">
 <link href="https://fonts.googleapis.com/css2?family=Shrikhand&family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -17,14 +17,12 @@
     --bg: #203645; --text: #FAF8EA;
     --text-muted: rgba(250,248,234,0.4); --text-faint: rgba(250,248,234,0.3);
     --text-ghost: rgba(250,248,234,0.15);
-    --link: rgba(250,248,234,0.3); --link-hover: rgba(250,248,234,0.7);
-    --badge-bg: rgba(1,89,116,0.5);
+    --store-apple-bg: #fff; --store-apple-text: #000; --store-apple-icon: #000;
+    --store-google-bg: rgba(250,248,234,0.08); --store-google-text: #FAF8EA;
+    --store-google-border: rgba(250,248,234,0.18);
     --input-bg: rgba(250,248,234,0.06); --input-border: rgba(250,248,234,0.12);
     --input-text: #FAF8EA; --input-placeholder: rgba(250,248,234,0.25);
     --success-bg: rgba(1,89,116,0.2); --success-text: #79CBD3;
-    --store-apple-bg: #fff; --store-apple-text: #000; --store-apple-icon: #000;
-    --store-google-bg: rgba(250,248,234,0.1); --store-google-text: #FAF8EA;
-    --store-google-border: rgba(250,248,234,0.15);
     --legal-link: #79CBD3; --logo-bg: #FAF8EA;
     --logo-shadow: 0 4px 32px rgba(0,0,0,0.3);
     --toggle-bg: rgba(250,248,234,0.1); --toggle-icon: #FAF8EA;
@@ -33,14 +31,12 @@
     --bg: #FAF8EA; --text: #203645;
     --text-muted: rgba(32,54,69,0.4); --text-faint: rgba(32,54,69,0.35);
     --text-ghost: rgba(32,54,69,0.2);
-    --link: rgba(32,54,69,0.35); --link-hover: #203645;
-    --badge-bg: #015974;
-    --input-bg: #fff; --input-border: rgba(32,54,69,0.12);
-    --input-text: #203645; --input-placeholder: rgba(32,54,69,0.3);
-    --success-bg: rgba(1,89,116,0.08); --success-text: #015974;
     --store-apple-bg: #000; --store-apple-text: #fff; --store-apple-icon: #fff;
     --store-google-bg: #fff; --store-google-text: #3c4043;
     --store-google-border: #dadce0;
+    --input-bg: #fff; --input-border: rgba(32,54,69,0.12);
+    --input-text: #203645; --input-placeholder: rgba(32,54,69,0.3);
+    --success-bg: rgba(1,89,116,0.08); --success-text: #015974;
     --legal-link: #015974; --logo-bg: #203645;
     --logo-shadow: 0 4px 24px rgba(32,54,69,0.12);
     --toggle-bg: rgba(32,54,69,0.08); --toggle-icon: #203645;
@@ -73,11 +69,11 @@
   .main {
     flex: 1; display: flex; flex-direction: column;
     align-items: center; justify-content: center;
-    padding: 0 24px 20px; gap: 18px;
+    padding: 0 24px 20px; gap: 22px;
   }
 
   .logo-mark {
-    width: 88px; height: 88px; border-radius: 22px;
+    width: 96px; height: 96px; border-radius: 22px;
     box-shadow: var(--logo-shadow); background: var(--logo-bg);
     transition: box-shadow var(--transition);
   }
@@ -91,79 +87,93 @@
     margin-top: 2px; transition: color var(--transition);
   }
 
-  .coming-soon {
+  .live-badge {
     display: inline-flex; align-items: center; gap: 8px;
-    background: var(--badge-bg); color: #FAF8EA;
+    background: rgba(34, 197, 94, 0.15); color: #4ade80;
     padding: 8px 20px; border-radius: 20px;
     font-size: 13px; font-weight: 600; letter-spacing: 0.5px;
-    margin-top: 10px;
-    transition: background var(--transition);
   }
-  .coming-soon .dot {
-    width: 8px; height: 8px; background: #F28C38; border-radius: 50%;
+  .live-badge .dot {
+    width: 8px; height: 8px; background: #4ade80; border-radius: 50%;
     animation: pulse 2s infinite;
   }
+  [data-theme="light"] .live-badge {
+    background: rgba(1, 89, 116, 0.1); color: #015974;
+  }
+  [data-theme="light"] .live-badge .dot { background: #015974; }
   @keyframes pulse {
     0%, 100% { opacity: 1; transform: scale(1); }
     50% { opacity: 0.5; transform: scale(0.8); }
   }
 
-  .waitlist {
-    display: flex; flex-direction: column;
-    align-items: center; gap: 12px;
-    width: 100%; max-width: 400px;
+  .features {
+    display: flex; gap: 24px; flex-wrap: wrap; justify-content: center;
+    margin: 4px 0;
   }
-  .waitlist-label { font-size: 14px; color: var(--text-muted); transition: color var(--transition); }
-  .waitlist-form { display: flex; gap: 8px; width: 100%; }
-  .waitlist-form input {
-    flex: 1; padding: 14px 16px;
-    border: 1.5px solid var(--input-border); border-radius: 12px;
-    font-family: 'Be Vietnam Pro', sans-serif; font-size: 15px;
-    color: var(--input-text); background: var(--input-bg); outline: none;
-    transition: border-color 0.2s, background var(--transition), color var(--transition);
+  .feature {
+    display: flex; align-items: center; gap: 6px;
+    font-size: 13px; color: var(--text-muted);
+    transition: color var(--transition);
   }
-  .waitlist-form input::placeholder { color: var(--input-placeholder); }
-  .waitlist-form input:focus { border-color: #015974; }
-  .waitlist-form button {
-    padding: 14px 24px; background: #F28C38; color: #FAF8EA;
-    border: none; border-radius: 12px;
-    font-family: 'Be Vietnam Pro', sans-serif; font-size: 15px; font-weight: 600;
-    cursor: pointer; white-space: nowrap;
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-  .waitlist-form button:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(242,140,56,0.4); }
+  .feature span { font-size: 16px; }
 
-  .waitlist-success {
-    display: none; text-align: center; padding: 16px 24px;
-    background: var(--success-bg); border-radius: 12px;
-    width: 100%; max-width: 400px; transition: background var(--transition);
+  .store-buttons {
+    display: flex; gap: 12px; flex-wrap: wrap; justify-content: center;
+    margin-top: 4px;
   }
-  .waitlist-success .check { font-size: 28px; margin-bottom: 4px; }
-  .waitlist-success p { font-size: 14px; color: var(--success-text); font-weight: 600; }
-  .waitlist-success .sub { font-size: 13px; color: var(--text-faint); font-weight: 400; margin-top: 2px; }
-
-  .store-buttons-wrap {
-    display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; position: relative;
-  }
-  .store-overlay {
-    position: absolute; top: 50%; left: 50%;
-    transform: translate(-50%, -50%); z-index: 2;
-    display: flex; flex-direction: column; align-items: center; gap: 0;
-    pointer-events: none;
-  }
-  .store-overlay span { font-size: 10px; font-weight: 700; color: var(--text-muted); letter-spacing: 1px; text-transform: uppercase; }
   .store-btn {
     display: inline-flex; align-items: center; gap: 10px;
-    padding: 12px 24px; border-radius: 12px;
+    padding: 14px 28px; border-radius: 14px;
     font-family: 'Be Vietnam Pro', sans-serif;
-    filter: blur(3px); opacity: 0.25; pointer-events: none; user-select: none;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
   }
+  .store-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  }
+  .store-btn:active { transform: translateY(0); }
   .store-btn--apple { background: var(--store-apple-bg); color: var(--store-apple-text); }
   .store-btn--apple svg { fill: var(--store-apple-icon); }
   .store-btn--google { background: var(--store-google-bg); color: var(--store-google-text); border: 1.5px solid var(--store-google-border); }
   .store-btn__text { display: flex; flex-direction: column; text-align: left; line-height: 1.2; }
   .store-btn__label { font-size: 10px; font-weight: 400; opacity: 0.7; }
   .store-btn__name { font-size: 16px; font-weight: 600; }
+
+  .waitlist {
+    display: flex; flex-direction: column;
+    align-items: center; gap: 12px;
+    width: 100%; max-width: 400px;
+    margin-top: 8px;
+  }
+  .waitlist-label { font-size: 13px; color: var(--text-faint); transition: color var(--transition); }
+  .waitlist-form { display: flex; gap: 8px; width: 100%; }
+  .waitlist-form input {
+    flex: 1; padding: 12px 16px;
+    border: 1.5px solid var(--input-border); border-radius: 12px;
+    font-family: 'Be Vietnam Pro', sans-serif; font-size: 14px;
+    color: var(--input-text); background: var(--input-bg); outline: none;
+    transition: border-color 0.2s, background var(--transition), color var(--transition);
+  }
+  .waitlist-form input::placeholder { color: var(--input-placeholder); }
+  .waitlist-form input:focus { border-color: #015974; }
+  .waitlist-form button {
+    padding: 12px 20px; background: #F28C38; color: #FAF8EA;
+    border: none; border-radius: 12px;
+    font-family: 'Be Vietnam Pro', sans-serif; font-size: 14px; font-weight: 600;
+    cursor: pointer; white-space: nowrap;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .waitlist-form button:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(242,140,56,0.4); }
+  .waitlist-success {
+    display: none; text-align: center; padding: 14px 24px;
+    background: var(--success-bg); border-radius: 12px;
+    width: 100%; max-width: 400px; transition: background var(--transition);
+  }
+  .waitlist-success .check { font-size: 28px; margin-bottom: 4px; }
+  .waitlist-success p { font-size: 14px; color: var(--success-text); font-weight: 600; }
+  .waitlist-success .sub { font-size: 13px; color: var(--text-faint); font-weight: 400; margin-top: 2px; }
 
   .footer { text-align: center; padding: 16px 20px 20px; flex-shrink: 0; }
   .footer p { font-size: 12px; color: var(--text-ghost); transition: color var(--transition); }
@@ -182,6 +192,7 @@
   @media (max-width: 480px) {
     .waitlist-form { flex-direction: column; }
     .waitlist-form button { width: 100%; }
+    .features { gap: 16px; }
   }
 </style>
 </head>
@@ -200,35 +211,38 @@
     <div class="wordmark">WaveCheck</div>
     <p class="tagline">Your personal surf guide</p>
   </div>
-  <div class="coming-soon"><span class="dot"></span> Coming Soon</div>
+
+  <div class="live-badge"><span class="dot"></span> Available Now</div>
+
+  <div class="features">
+    <div class="feature"><span>🌊</span> 1,000+ European spots</div>
+    <div class="feature"><span>🎯</span> Personalized scores</div>
+    <div class="feature"><span>📱</span> Free to use</div>
+  </div>
+
+  <div class="store-buttons">
+    <a href="https://apps.apple.com/us/app/wavecheck-surf-forecast/id6759298516" class="store-btn store-btn--apple" target="_blank">
+      <svg width="22" height="22" viewBox="0 0 24 24"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.32 2.32-1.55 4.3-3.74 4.25z"/></svg>
+      <div class="store-btn__text"><span class="store-btn__label">Download on the</span><span class="store-btn__name">App Store</span></div>
+    </a>
+    <a href="YOUR_GOOGLE_PLAY_LINK" class="store-btn store-btn--google" target="_blank">
+      <svg width="22" height="22" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+      <div class="store-btn__text"><span class="store-btn__label">Get it on</span><span class="store-btn__name">Google Play</span></div>
+    </a>
+  </div>
 
   <div class="waitlist" id="waitlist">
-    <p class="waitlist-label">Get notified when we launch</p>
+    <p class="waitlist-label">Get surf updates & new features</p>
     <div class="waitlist-form" id="waitlist-form">
       <input type="email" id="email-input" placeholder="your@email.com" required>
-      <button onclick="submitEmail()">Join Waitlist</button>
+      <button onclick="submitEmail()">Subscribe</button>
     </div>
   </div>
 
   <div class="waitlist-success" id="waitlist-success">
     <div class="check">🤙</div>
     <p>You're on the list!</p>
-    <p class="sub">We'll let you know when WaveCheck is ready</p>
-  </div>
-
-  <div class="store-buttons-wrap">
-    <div class="store-overlay">
-      <span style="font-size:32px; transform:none;">🏄</span>
-      <span>soon</span>
-    </div>
-    <div class="store-btn store-btn--apple">
-      <svg width="22" height="22" viewBox="0 0 24 24"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.32 2.32-1.55 4.3-3.74 4.25z"/></svg>
-      <div class="store-btn__text"><span class="store-btn__label">Download on the</span><span class="store-btn__name">App Store</span></div>
-    </div>
-    <div class="store-btn store-btn--google">
-      <svg width="22" height="22" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
-      <div class="store-btn__text"><span class="store-btn__label">Get it on</span><span class="store-btn__name">Google Play</span></div>
-    </div>
+    <p class="sub">We'll keep you posted on new features</p>
   </div>
 </div>
 
