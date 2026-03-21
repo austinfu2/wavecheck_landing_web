@@ -323,4 +323,17 @@ function showHome() {
 function showPage(page) {
   document.getElementById('main-content').style.display = 'none';
   document.getElementById('privacy-page').classList.remove('active');
-  docume
+  document.getElementById('terms-page').classList.remove('active');
+  document.getElementById(page + '-page').classList.add('active');
+  window.scrollTo(0, 0);
+}
+const saved = localStorage.getItem('wc-theme');
+if (saved) {
+  document.documentElement.setAttribute('data-theme', saved);
+  document.getElementById('theme-color-meta').content = saved === 'dark' ? '#203645' : '#FAF8EA';
+}
+if (window.location.pathname === '/privacy') showPage('privacy');
+if (window.location.pathname === '/terms') showPage('terms');
+</script>
+</body>
+</html>
