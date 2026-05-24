@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#203645">
+<meta name="description" content="WaveCheck terms and conditions. Subscriptions, liability, intellectual property, and your rights.">
+<title>Terms & Conditions — WaveCheck</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shrikhand&family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+/*
+ * ─── WaveCheck legal page (terms) ────────────────────────────────────────
+ * Mirrors privacy.html exactly — same palette, same typography rules.
+ * Two pages on the same template = consistent feel, easier maintenance.
+ */
+
+:root {
+  --ink:        #203645;
+  --ink-deep:   #182835;
+  --cream:      #FAF8EA;
+  --cream-soft: #F4F0DD;
+  --orange:     #E68B2F;
+  --orange-bright: #FF9F3C;
+  --teal:       #0A8E7D;
+
+  --on-dark:        #FAF8EA;
+  --on-dark-muted:  rgba(250, 248, 234, 0.65);
+  --on-dark-faint:  rgba(250, 248, 234, 0.18);
+  --on-light:       #203645;
+  --on-light-muted: rgba(32, 54, 69, 0.7);
+  --on-light-faint: rgba(32, 54, 69, 0.15);
+
+  --display: 'Shrikhand', cursive;
+  --body:    'Be Vietnam Pro', system-ui, sans-serif;
+  --mono:    'JetBrains Mono', ui-monospace, monospace;
+
+  --container: 1180px;
+  --gutter:    clamp(20px, 5vw, 48px);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--on-light);
+  font-family: var(--body);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: var(--teal); text-decoration: underline; text-underline-offset: 2px; }
+a:hover { color: var(--orange); }
+
+/* ── Nav (matches landing) ─────────────────────────────────────────────── */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(32, 54, 69, 0.96);
+  backdrop-filter: saturate(160%) blur(14px);
+  -webkit-backdrop-filter: saturate(160%) blur(14px);
+  border-bottom: 1px solid var(--on-dark-faint);
+  color: var(--on-dark);
+}
+.nav__inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 14px var(--gutter);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav__brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--display);
+  font-size: 22px;
+  color: var(--on-dark);
+  text-decoration: none;
+}
+.nav__brand:hover { color: var(--on-dark); }
+.nav__brand img { width: 28px; height: 28px; }
+.nav__cta {
+  font-family: var(--body);
+  font-weight: 600;
+  font-size: 14px;
+  padding: 9px 18px;
+  border-radius: 999px;
+  background: var(--orange);
+  color: var(--ink);
+  text-decoration: none;
+  transition: transform 180ms ease, background 180ms ease;
+}
+.nav__cta:hover { transform: translateY(-1px); background: var(--orange-bright); color: var(--ink); }
+
+/* ── Page header ───────────────────────────────────────────────────────── */
+.page-header {
+  padding: clamp(60px, 8vw, 100px) 0 clamp(32px, 5vw, 48px);
+  border-bottom: 1px solid var(--on-light-faint);
+}
+.page-header__inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+.page-header__eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin: 0 0 14px;
+}
+.page-header__title {
+  font-family: var(--display);
+  font-size: clamp(42px, 6.5vw, 72px);
+  line-height: 1;
+  letter-spacing: -0.01em;
+  margin: 0;
+  color: var(--on-light);
+}
+.page-header__title-mark {
+  color: var(--orange);
+  display: inline-block;
+  position: relative;
+}
+.page-header__title-mark::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: -4px;
+  bottom: -4px;
+  height: 8px;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 8' preserveAspectRatio='none'><path d='M0,4 Q12.5,0 25,4 T50,4 T75,4 T100,4' fill='none' stroke='%23E68B2F' stroke-width='2' opacity='0.55'/></svg>");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+.page-header__meta {
+  margin-top: 20px;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  color: var(--on-light-muted);
+}
+
+/* ── Content column ────────────────────────────────────────────────────── */
+.content {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: clamp(40px, 6vw, 64px) var(--gutter) clamp(64px, 10vw, 120px);
+}
+
+.content p {
+  margin: 0 0 1.2em;
+  font-size: 16.5px;
+  line-height: 1.65;
+  color: var(--on-light);
+}
+
+.content h2 {
+  font-family: var(--display);
+  font-size: clamp(26px, 3.4vw, 34px);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  margin: 56px 0 18px;
+  color: var(--on-light);
+}
+.content h2:first-child { margin-top: 0; }
+
+.content h3 {
+  font-family: var(--body);
+  font-weight: 700;
+  font-size: 17px;
+  letter-spacing: 0.02em;
+  margin: 32px 0 10px;
+  color: var(--on-light);
+}
+
+.content ul {
+  margin: 0 0 1.4em;
+  padding-left: 22px;
+}
+.content li {
+  font-size: 16.5px;
+  line-height: 1.65;
+  margin-bottom: 6px;
+  color: var(--on-light);
+}
+
+.content strong { font-weight: 700; color: var(--ink-deep); }
+
+/* Callout for the surfing-risk warning. Visually distinct because it
+   actually matters — people need to internalize that surf forecasts
+   can be wrong and the ocean can hurt you. */
+.callout {
+  background: #fff;
+  border: 1px solid var(--on-light-faint);
+  border-left: 3px solid var(--orange);
+  border-radius: 10px;
+  padding: 24px 28px;
+  margin: 24px 0 32px;
+}
+.callout p:last-child { margin-bottom: 0; }
+.callout h3 { margin-top: 0; }
+
+/* Bottom navigation back to home */
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--teal);
+  text-decoration: none;
+  margin-top: 48px;
+  padding-top: 28px;
+  border-top: 1px solid var(--on-light-faint);
+}
+.back-link:hover { color: var(--orange); }
+.back-link::before { content: '←'; }
+
+/* ── Footer (matches landing) ──────────────────────────────────────────── */
+.footer {
+  padding: 36px var(--gutter) 44px;
+  background: var(--ink-deep);
+  color: var(--on-dark-muted);
+  font-family: var(--body);
+  font-size: 13px;
+  border-top: 1px solid var(--on-dark-faint);
+}
+.footer__inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.footer__links { display: flex; gap: 22px; flex-wrap: wrap; }
+.footer__links a {
+  color: var(--on-dark-muted);
+  text-decoration: none;
+}
+.footer__links a:hover { color: var(--orange-bright); }
+.footer__credit {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: rgba(250, 248, 234, 0.45);
+}
+
+@media (max-width: 540px) {
+  .content { padding-left: var(--gutter); padding-right: var(--gutter); }
+  .callout { padding: 20px 22px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ─── Nav ──────────────────────────────────────────────────────────── -->
+<nav class="nav">
+  <div class="nav__inner">
+    <a href="/" class="nav__brand">
+      <img src="splash_logo.png" alt="WaveCheck">
+      WaveCheck
+    </a>
+    <a href="/#download" class="nav__cta">Download</a>
+  </div>
+</nav>
+
+<!-- ─── Page header ──────────────────────────────────────────────────── -->
+<header class="page-header">
+  <div class="page-header__inner">
+    <p class="page-header__eyebrow">Legal</p>
+    <h1 class="page-header__title">
+      Terms & <span class="page-header__title-mark">Conditions</span>
+    </h1>
+    <p class="page-header__meta">Effective March 3, 2026</p>
+  </div>
+</header>
+
+<!-- ─── Content ──────────────────────────────────────────────────────── -->
+<main class="content">
+
+  <p>
+    These terms apply to the WaveCheck app, created by Austin Urraca as
+    a Freemium service. By downloading, installing, or using WaveCheck,
+    you agree to be bound by these terms. If you don't agree, please
+    don't use the app.
+  </p>
+
+  <h2>Use of the App</h2>
+  <p>
+    WaveCheck is provided "AS IS" without warranties of any kind. You
+    agree to use the app only for lawful purposes and not to:
+  </p>
+  <ul>
+    <li>Reverse engineer, decompile, or extract source code from the app</li>
+    <li>Copy, modify, or create derivative works of the app or its content</li>
+    <li>Use the app to harass, abuse, or impersonate other users</li>
+    <li>Attempt to gain unauthorized access to our servers or other users' accounts</li>
+    <li>Use automated systems (bots, scrapers) to access the app or its data</li>
+  </ul>
+  <p>
+    All intellectual property rights in the app, including its design,
+    forecasts methodology, source code, and trademarks, remain with the
+    developer.
+  </p>
+
+  <h2>Accounts & User Content</h2>
+  <p>
+    You may need to create an account to use some features. You're
+    responsible for maintaining the security of your account credentials
+    and for all activity that happens under your account. Notify us
+    immediately at
+    <a href="mailto:support@wavecheck.surf">support@wavecheck.surf</a>
+    if you suspect unauthorized access.
+  </p>
+  <p>
+    When you log surf sessions, post photos, or share other content in
+    WaveCheck, you keep ownership of that content. By posting, you grant
+    WaveCheck a non-exclusive, worldwide, royalty-free license to
+    display and distribute that content within the app to provide its
+    features (for example, showing your session in a spot's feed). We
+    don't sell your content to third parties.
+  </p>
+  <p>
+    You can delete your sessions or your entire account at any time
+    from the app's settings.
+  </p>
+
+  <h2>Subscriptions</h2>
+  <p>
+    WaveCheck Pro is available as a monthly subscription, annual
+    subscription, or one-time lifetime purchase.
+  </p>
+  <ul>
+    <li>
+      Subscriptions auto-renew unless cancelled at least 24 hours before
+      the end of the current period
+    </li>
+    <li>
+      Cancellations and refunds are handled through your App Store or
+      Google Play account settings — we don't process payments directly
+    </li>
+    <li>
+      Prices may vary by region and are displayed in your local
+      currency at the time of purchase
+    </li>
+    <li>
+      Lifetime purchases grant access for the lifetime of the app, not
+      your lifetime — if WaveCheck is discontinued, the lifetime purchase
+      ends with it
+    </li>
+  </ul>
+  <p>
+    Subscription management is handled by RevenueCat. See our
+    <a href="/privacy.html">Privacy Policy</a> for how that data is processed.
+  </p>
+
+  <div class="callout">
+    <h3>Surfing involves risk</h3>
+    <p>
+      WaveCheck forecasts are estimates based on third-party weather and
+      ocean data. Conditions can change quickly and dramatically.
+      Forecasts can be wrong.
+    </p>
+    <p>
+      Surfing is an activity with inherent risks including drowning,
+      injury, and death. Hazards include but are not limited to large
+      waves, currents, rocks, reef, marine life, other surfers, and
+      offshore conditions.
+    </p>
+    <p>
+      <strong>Always exercise your own judgment.</strong> Check local
+      conditions in person, surf within your ability, never surf alone
+      if conditions are challenging, and follow local rules and lifeguard
+      guidance. WaveCheck is a planning tool, not a substitute for
+      experience, training, or first-hand observation of the spot.
+    </p>
+  </div>
+
+  <h2>Liability</h2>
+  <p>
+    We rely on third parties for forecast data and accept no liability
+    for losses arising from your reliance on the information presented
+    in the app. To the maximum extent permitted by law, WaveCheck and
+    its developer are not liable for any direct, indirect, incidental,
+    consequential, or punitive damages arising from your use of the app,
+    including but not limited to injuries sustained while surfing,
+    missed surf sessions, or any decisions made based on forecast data.
+  </p>
+  <p>
+    The app is provided "AS IS" without warranties of merchantability,
+    fitness for a particular purpose, or non-infringement. We make no
+    guarantee that the app will be available without interruption, free
+    from errors, or that forecasts will be accurate.
+  </p>
+
+  <h2>Third-Party Services</h2>
+  <p>
+    WaveCheck integrates with the following third-party services, each
+    governed by its own terms:
+  </p>
+  <ul>
+    <li><a href="https://policies.google.com/terms" target="_blank" rel="noopener">Google Play Services</a></li>
+    <li><a href="https://www.mapbox.com/legal/tos" target="_blank" rel="noopener">Mapbox</a></li>
+    <li><a href="https://www.apple.com/legal/internet-services/itunes/" target="_blank" rel="noopener">Apple App Store</a></li>
+    <li><a href="https://www.revenuecat.com/terms/" target="_blank" rel="noopener">RevenueCat</a></li>
+    <li><a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener">Google API Services (Calendar)</a></li>
+  </ul>
+
+  <h2>Updates & Termination</h2>
+  <p>
+    We may update, change, or discontinue WaveCheck or any of its
+    features at any time, with or without notice. We may also suspend
+    or terminate your access to the app if you violate these terms.
+  </p>
+  <p>
+    Upon termination, your rights and licenses under these terms end.
+    Any provisions intended to survive termination — including liability
+    limitations, intellectual property ownership, and governing law —
+    continue to apply.
+  </p>
+
+  <h2>Changes to These Terms</h2>
+  <p>
+    We may update these terms from time to time. When we make material
+    changes, we'll update the effective date at the top of this page. If
+    the changes are significant, we'll notify you via the app or by email
+    where reasonable. Continuing to use WaveCheck after changes take
+    effect means you accept the updated terms.
+  </p>
+
+  <h2>Governing Law</h2>
+  <p>
+    These terms are governed by the laws of Portugal, without regard to
+    conflict-of-law principles. Any disputes arising from these terms
+    or your use of the app will be resolved in the courts of Portugal,
+    unless your local consumer protection laws require otherwise.
+  </p>
+
+  <h2>Contact</h2>
+  <p>
+    Questions about these terms?
+    <a href="mailto:support@wavecheck.surf">support@wavecheck.surf</a>
+  </p>
+
+  <a href="/" class="back-link">Back to WaveCheck</a>
+
+</main>
+
+<!-- ─── Footer (matches landing) ─────────────────────────────────────── -->
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__links">
+      <a href="mailto:support@wavecheck.surf">Contact</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="https://instagram.com/wavecheck.surf" target="_blank" rel="noopener">Instagram</a>
+    </div>
+    <div class="footer__credit">© 2026 WaveCheck · Made with ♥ in Ferrel, Portugal</div>
+  </div>
+</footer>
+
+</body>
+</html>
