@@ -5,6 +5,7 @@
       "headers": [{ "key": "Content-Type", "value": "application/json" }]
     }
   ],
+  "cleanUrls": true,
   "rewrites": [
     { "source": "/spot/:id", "destination": "/app-redirect.html" },
     { "source": "/forecast/:id", "destination": "/app-redirect.html" }
