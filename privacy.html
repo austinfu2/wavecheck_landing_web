@@ -392,18 +392,22 @@ contractually obligated to protect your data. We do not share Google user
 data with advertisers, analytics partners, or any other third parties.</p>
 
 <h3>4. Data Storage and Protection</h3>
-<p>Google user data is stored on encrypted servers hosted by Railway. 
-All data is transmitted between your device and our servers over 
-HTTPS/TLS encrypted connections. Access to user data within our 
-infrastructure is restricted to the WaveCheck developer (Austin Urraca) 
-and protected by strong authentication. We do not store your Google 
-password — authentication is handled entirely by Google's OAuth flow, 
-and we receive only the OAuth tokens necessary to access the scopes you 
-have authorized.</p>
-<p>Calendar OAuth refresh tokens are stored encrypted at rest. We retain 
-no copies of your Google Calendar event data on our servers — events 
-are written directly to your Google Calendar via the Google Calendar 
-API and are not duplicated in our database.</p>
+<p>Google user data is stored in our PostgreSQL database hosted on 
+Railway infrastructure. Our hosting provider applies infrastructure-
+level encryption to data at rest. All data is transmitted between your 
+device, our servers, and Google's APIs over HTTPS/TLS encrypted 
+connections. Access to user data within our infrastructure is restricted 
+to the WaveCheck developer (Austin Urraca) and protected by strong 
+authentication. We do not store your Google password — authentication 
+is handled entirely by Google's OAuth flow, and we receive only the 
+OAuth tokens necessary to access the scopes you have authorized.</p>
+
+<p>Calendar OAuth refresh tokens are retained only while Google Calendar 
+sync is enabled. We do not store copies of your Google Calendar event 
+data on our servers — calendar events are written directly to your 
+Google Calendar via the Google Calendar API and are not duplicated in 
+our database. We read only events that WaveCheck previously created, 
+identified by private metadata tags we set when creating them.</p>
 
 <h3>5. Data Retention and Deletion</h3>
 <p>Google user data is retained only as long as necessary to provide 
