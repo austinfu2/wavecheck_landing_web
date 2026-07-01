@@ -542,10 +542,10 @@ button { font: inherit; cursor: pointer; border: 0; background: none; }
   letter-spacing: 0.04em;
 }
 
-/* ── Section: Sessions (DARK) ──────────────────────────────────────────── */
+/* ── Section: Sessions (CREAM) ─────────────────────────────────────────── */
 .sessions {
-  background: var(--ink-deep);
-  color: var(--on-dark);
+  background: var(--cream);
+  color: var(--on-light);
   padding: var(--section-y) 0;
 }
 .sessions__grid {
@@ -563,8 +563,8 @@ button { font: inherit; cursor: pointer; border: 0; background: none; }
   margin-top: 32px;
 }
 .session-row {
-  background: rgba(250, 248, 234, 0.04);
-  border: 1px solid var(--on-dark-faint);
+  background: rgba(32, 54, 69, 0.03);
+  border: 1px solid var(--on-light-faint);
   border-radius: 14px;
   padding: 16px 18px;
   display: flex;
@@ -583,7 +583,7 @@ button { font: inherit; cursor: pointer; border: 0; background: none; }
   font-weight: 600;
   font-size: 15px;
   margin: 0;
-  color: var(--on-dark);
+  color: var(--on-light);
 }
 .session-row__stars {
   display: inline-flex;
@@ -596,12 +596,12 @@ button { font: inherit; cursor: pointer; border: 0; background: none; }
   display: block;
 }
 .session-row__star { fill: var(--orange-bright); }
-.session-row__star--empty { fill: var(--on-dark-faint); }
+.session-row__star--empty { fill: var(--on-light-faint); }
 /* Second row: small monospace metadata (waves, duration, time ago) */
 .session-row__meta {
   font-family: var(--mono);
   font-size: 11px;
-  color: var(--on-dark-muted);
+  color: var(--on-light-muted);
   letter-spacing: 0.04em;
   margin: 0;
   display: flex;
@@ -610,10 +610,10 @@ button { font: inherit; cursor: pointer; border: 0; background: none; }
 }
 .session-row__meta span { display: inline-flex; align-items: center; gap: 6px; }
 
-/* ── Section: Notifications (CREAM) ────────────────────────────────────── */
+/* ── Section: Notifications (DARK) ─────────────────────────────────────── */
 .alerts {
-  background: var(--cream);
-  color: var(--on-light);
+  background: var(--ink-deep);
+  color: var(--on-dark);
 }
 .alerts__grid {
   display: grid;
@@ -1151,17 +1151,17 @@ button { font: inherit; cursor: pointer; border: 0; background: none; }
   </div>
 </section>
 
-<!-- ─── ALERTS (CREAM) ───────────────────────────────────────────────── -->
+<!-- ─── ALERTS (DARK) ───────────────────────────────────────────────── -->
 <section class="section alerts" id="alerts">
   <div class="container alerts__grid">
     <div class="reveal">
-      <p class="eyebrow eyebrow--teal">Alerts</p>
+      <p class="eyebrow eyebrow--orange">Alerts</p>
       <h2 class="display display--l">
         Tell us when<br>
         you'd surf.<br>
         We'll <span style="color: var(--orange)">wake you up.</span>
       </h2>
-      <p class="lede lede--light">
+      <p class="lede lede--dark">
         Save the conditions you care about for each spot — any combination
         of size, wind, period, tide. WaveCheck pushes you when they're
         about to hit.
@@ -1192,16 +1192,16 @@ button { font: inherit; cursor: pointer; border: 0; background: none; }
   </div>
 </section>
 
-<!-- ─── SESSIONS (DARK) ──────────────────────────────────────────────── -->
+<!-- ─── SESSIONS (CREAM) ──────────────────────────────────────────────── -->
 <section class="section sessions" id="sessions">
   <div class="container sessions__grid">
     <div class="reveal">
-      <p class="eyebrow eyebrow--orange">Sessions</p>
+      <p class="eyebrow eyebrow--teal">Sessions</p>
       <h2 class="display display--l">
         Log yours.<br>
         See <span style="color: var(--orange)">everyone else's.</span>
       </h2>
-      <p class="lede lede--dark">
+      <p class="lede lede--light">
         Every spot has a feed of what's been surfed there lately — what
         board, what skill level, how it went. Show up knowing what
         people just saw.
@@ -1519,7 +1519,7 @@ button { font: inherit; cursor: pointer; border: 0; background: none; }
 (function () {
   const nav = document.getElementById('nav');
   if (!nav || !('IntersectionObserver' in window)) return;
-  const creamSelectors = '.scoring, .alerts, .reviews';
+  const creamSelectors = '.scoring, .sessions, .reviews';
   const creamObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting && entry.intersectionRatio > 0.3) {
@@ -1536,7 +1536,7 @@ button { font: inherit; cursor: pointer; border: 0; background: none; }
       }
     });
   }, { threshold: [0, 0.3, 0.7] });
-  document.querySelectorAll('.hero, .props, .sessions, .leader, .spots, .outro').forEach((el) => darkObserver.observe(el));
+  document.querySelectorAll('.hero, .props, .alerts, .leader, .spots, .outro').forEach((el) => darkObserver.observe(el));
 })();
 </script>
 
