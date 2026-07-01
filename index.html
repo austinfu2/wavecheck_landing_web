@@ -429,6 +429,9 @@ button { font: inherit; cursor: pointer; border: 0; background: none; }
   flex-direction: column;
   gap: 12px;
   transition: background 220ms ease, transform 220ms ease, border-color 220ms ease;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
 }
 .prop:hover {
   background: rgba(250, 248, 234, 0.07);
@@ -1073,44 +1076,44 @@ button { font: inherit; cursor: pointer; border: 0; background: none; }
   <div class="container">
     <div class="props__row">
 
-      <div class="prop reveal">
+      <a href="#scoring" class="prop reveal">
         <div class="prop__icon">
           <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/></svg>
         </div>
         <h3 class="prop__title">Your scores</h3>
         <p class="prop__copy">Every wave scored against your board, your skill, and what each spot actually needs.</p>
-      </div>
+      </a>
 
-      <div class="prop reveal">
-        <div class="prop__icon">
-          <svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="16" x2="13" y2="16"/></svg>
-        </div>
-        <h3 class="prop__title">Sessions</h3>
-        <p class="prop__copy">Log every paddle. Browse what others surfed at the same spot.</p>
-      </div>
-
-      <div class="prop reveal">
+      <a href="#alerts" class="prop reveal">
         <div class="prop__icon">
           <svg viewBox="0 0 24 24"><path d="M6 8a6 6 0 0112 0v4l2 3H4l2-3V8z"/><path d="M10 19a2 2 0 004 0"/></svg>
         </div>
         <h3 class="prop__title">Alerts</h3>
         <p class="prop__copy">Save the conditions you care about. Wake up to a push when they're going to hit.</p>
-      </div>
+      </a>
 
-      <div class="prop reveal">
+      <a href="#sessions" class="prop reveal">
+        <div class="prop__icon">
+          <svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="16" x2="13" y2="16"/></svg>
+        </div>
+        <h3 class="prop__title">Sessions</h3>
+        <p class="prop__copy">Log every paddle. Browse what others surfed at the same spot.</p>
+      </a>
+
+      <a href="#leaderboards" class="prop reveal">
         <div class="prop__icon">
           <svg viewBox="0 0 24 24"><path d="M7 4h10v4a5 5 0 01-10 0V4z"/><path d="M7 6H4v2a3 3 0 003 3"/><path d="M17 6h3v2a3 3 0 01-3 3"/><line x1="12" y1="13" x2="12" y2="18"/><line x1="8" y1="20" x2="16" y2="20"/></svg>
         </div>
         <h3 class="prop__title">Leaderboards</h3>
         <p class="prop__copy">Rank by sessions logged — at your spot, your area, or your country.</p>
-      </div>
+      </a>
 
     </div>
   </div>
 </section>
 
 <!-- ─── PERSONALIZED SCORING (CREAM) ─────────────────────────────────── -->
-<section class="section scoring">
+<section class="section scoring" id="scoring">
   <div class="container scoring__grid">
     <div class="reveal">
       <p class="eyebrow eyebrow--teal">Scoring</p>
@@ -1149,7 +1152,7 @@ button { font: inherit; cursor: pointer; border: 0; background: none; }
 </section>
 
 <!-- ─── SESSIONS (DARK) ──────────────────────────────────────────────── -->
-<section class="section sessions">
+<section class="section sessions" id="sessions">
   <div class="container sessions__grid">
     <div class="reveal">
       <p class="eyebrow eyebrow--orange">Sessions</p>
@@ -1226,7 +1229,7 @@ button { font: inherit; cursor: pointer; border: 0; background: none; }
 </section>
 
 <!-- ─── ALERTS (CREAM) ───────────────────────────────────────────────── -->
-<section class="section alerts">
+<section class="section alerts" id="alerts">
   <div class="container alerts__grid">
     <div class="reveal">
       <p class="eyebrow eyebrow--teal">Alerts</p>
@@ -1267,7 +1270,7 @@ button { font: inherit; cursor: pointer; border: 0; background: none; }
 </section>
 
 <!-- ─── LEADERBOARDS (DARK) ──────────────────────────────────────────── -->
-<section class="section leader">
+<section class="section leader" id="leaderboards">
   <div class="container leader__grid">
     <div class="reveal">
       <p class="eyebrow eyebrow--orange">Leaderboards</p>
