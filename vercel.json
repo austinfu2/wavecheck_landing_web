@@ -9,9 +9,10 @@
   "rewrites": [
     { "source": "/spot/:id", "destination": "/app-redirect.html" },
     { "source": "/forecast/:id", "destination": "/app-redirect.html" },
-    { "source": "/surf-forecast",         "destination": "https://wavecheck-forecast.vercel.app/surf-forecast" },
-    { "source": "/surf-forecast/:path*",   "destination": "https://wavecheck-forecast.vercel.app/surf-forecast/:path*" },
-    { "source": "/sitemap.xml",            "destination": "https://wavecheck-forecast.vercel.app/sitemap.xml" },
-    { "source": "/robots.txt",             "destination": "https://wavecheck-forecast.vercel.app/robots.txt" }
+    { "source": "/surf-forecast",        "destination": "https://wavecheck-forecast.vercel.app/surf-forecast" },
+    { "source": "/surf-forecast/:path*", "destination": "https://wavecheck-forecast.vercel.app/surf-forecast/:path*" },
+    { "source": "/api/forecast",         "destination": "https://wavecheck-forecast.vercel.app/api/forecast" },
+    { "source": "/sitemap.xml",          "destination": "https://wavecheck-forecast.vercel.app/sitemap.xml" },
+    { "source": "/robots.txt",           "destination": "https://wavecheck-forecast.vercel.app/robots.txt" }
   ]
 }
