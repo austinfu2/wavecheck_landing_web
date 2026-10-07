@@ -1,7 +1,7 @@
 {
   "name": "WaveCheck",
   "short_name": "WaveCheck",
-  "description": "Personalized surf forecasts for 2,000+ spots — scored to your board and skill.",
+  "description": "Personalized surf forecasts for 2,500+ spots — scored to your board and skill.",
   "icons": [
     {
       "src": "/web-app-manifest-192x192.png",
