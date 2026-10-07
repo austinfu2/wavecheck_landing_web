@@ -212,6 +212,16 @@ button { font: inherit; cursor: pointer; border: 0; background: none; }
   transition: transform 180ms ease, background 180ms ease;
 }
 .nav__cta:hover { transform: translateY(-1px); background: var(--orange-bright); }
+.nav__right { display: flex; align-items: center; gap: 18px; }
+.nav__link {
+  font-family: var(--body);
+  font-weight: 600;
+  font-size: 14px;
+  opacity: 0.85;
+  transition: opacity 180ms ease, color 180ms ease;
+}
+.nav__link:hover { opacity: 1; color: var(--orange-bright); }
+@media (max-width: 420px) { .nav__link { display: none; } }   /* no room beside Download; the footer links stay */
 
 /* ── Hero (DARK) ─────────────────────────────────────────────────────────── */
 .hero {
@@ -954,6 +964,17 @@ button { font: inherit; cursor: pointer; border: 0; background: none; }
   gap: 16px;
 }
 .footer__links { display: flex; gap: 22px; flex-wrap: wrap; }
+.footer__forecasts {
+  flex-basis: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  padding-bottom: 14px;
+  margin-bottom: 4px;
+  border-bottom: 1px solid var(--on-dark-faint);
+}
+.footer__forecasts strong { color: var(--cream, #FAF8EA); font-weight: 600; }
+.footer__forecasts a:hover { color: var(--orange-bright); }
 .footer__links a:hover { color: var(--orange-bright); }
 .footer__credit {
   font-family: var(--mono);
@@ -988,9 +1009,12 @@ button { font: inherit; cursor: pointer; border: 0; background: none; }
       <img src="splash_logo.png" alt="WaveCheck">
       WaveCheck
     </a>
-    <a href="#download" class="nav__cta" id="navCta"
-       data-ios="https://apps.apple.com/us/app/wavecheck-surf-forecast/id6759298516"
-       data-android="https://play.google.com/store/apps/details?id=com.wavecheck.app">Download</a>
+    <div class="nav__right">
+      <a href="/surf-forecast" class="nav__link">Surf forecasts</a>
+      <a href="#download" class="nav__cta" id="navCta"
+         data-ios="https://apps.apple.com/us/app/wavecheck-surf-forecast/id6759298516"
+         data-android="https://play.google.com/store/apps/details?id=com.wavecheck.app">Download</a>
+    </div>
   </div>
 </nav>
 
@@ -1444,6 +1468,21 @@ button { font: inherit; cursor: pointer; border: 0; background: none; }
 <!-- ─── FOOTER ───────────────────────────────────────────────────────── -->
 <footer class="footer">
   <div class="footer__inner">
+    <nav class="footer__forecasts" aria-label="Surf forecasts by country">
+      <a href="/surf-forecast"><strong>Surf forecasts</strong></a>
+      <a href="/surf-forecast/portugal">Portugal</a>
+      <a href="/surf-forecast/spain">Spain</a>
+      <a href="/surf-forecast/france">France</a>
+      <a href="/surf-forecast/uk">UK</a>
+      <a href="/surf-forecast/ireland">Ireland</a>
+      <a href="/surf-forecast/morocco">Morocco</a>
+      <a href="/surf-forecast/australia">Australia</a>
+      <a href="/surf-forecast/indonesia">Indonesia</a>
+      <a href="/surf-forecast/united-states">United States</a>
+      <a href="/surf-forecast/mexico">Mexico</a>
+      <a href="/surf-forecast/brazil">Brazil</a>
+      <a href="/surf-forecast/south-africa">South Africa</a>
+    </nav>
     <div class="footer__links">
       <a href="mailto:support@wavecheck.surf">Contact</a>
       <a href="privacy.html">Privacy</a>
