@@ -227,7 +227,9 @@ button { font: inherit; cursor: pointer; border: 0; background: none; }
 .hero {
   background: var(--ink);
   color: var(--on-dark);
-  padding: clamp(60px, 9vw, 120px) 0 clamp(80px, 11vw, 150px);
+  /* Small top padding so the headline, store buttons and the whole phone are in
+     view on open (the copy is centred against the 737px-tall phone). */
+  padding: clamp(24px, 3.5vw, 48px) 0 clamp(80px, 11vw, 150px);
   position: relative;
   overflow: hidden;
 }
