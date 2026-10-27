@@ -6,6 +6,9 @@
     }
   ],
   "cleanUrls": true,
+  "redirects": [
+    { "source": "/go/:tag", "destination": "https://api.wavecheck.surf/go/:tag", "permanent": false }
+  ],
   "rewrites": [
     { "source": "/spot/:id", "destination": "/app-redirect.html" },
     { "source": "/forecast/:id", "destination": "/app-redirect.html" },
