@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#203645">
+<meta name="description" content="The rules for reports from the beach in WaveCheck: what is not allowed, how to flag or block, and what happens if the rules are broken.">
+<title>Community Rules — WaveCheck</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shrikhand&family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+/*
+ * ─── WaveCheck legal page (community rules) ────────────────────────────────────────
+ * Mirrors privacy.html exactly — same palette, same typography rules.
+ * Two pages on the same template = consistent feel, easier maintenance.
+ */
+
+:root {
+  --ink:        #203645;
+  --ink-deep:   #182835;
+  --cream:      #FAF8EA;
+  --cream-soft: #F4F0DD;
+  --orange:     #E68B2F;
+  --orange-bright: #FF9F3C;
+  --teal:       #0A8E7D;
+
+  --on-dark:        #FAF8EA;
+  --on-dark-muted:  rgba(250, 248, 234, 0.65);
+  --on-dark-faint:  rgba(250, 248, 234, 0.18);
+  --on-light:       #203645;
+  --on-light-muted: rgba(32, 54, 69, 0.7);
+  --on-light-faint: rgba(32, 54, 69, 0.15);
+
+  --display: 'Shrikhand', cursive;
+  --body:    'Be Vietnam Pro', system-ui, sans-serif;
+  --mono:    'JetBrains Mono', ui-monospace, monospace;
+
+  --container: 1180px;
+  --gutter:    clamp(20px, 5vw, 48px);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--on-light);
+  font-family: var(--body);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: var(--teal); text-decoration: underline; text-underline-offset: 2px; }
+a:hover { color: var(--orange); }
+
+/* ── Nav (matches landing) ─────────────────────────────────────────────── */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(32, 54, 69, 0.96);
+  backdrop-filter: saturate(160%) blur(14px);
+  -webkit-backdrop-filter: saturate(160%) blur(14px);
+  border-bottom: 1px solid var(--on-dark-faint);
+  color: var(--on-dark);
+}
+.nav__inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 14px var(--gutter);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav__brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--display);
+  font-size: 22px;
+  color: var(--on-dark);
+  text-decoration: none;
+}
+.nav__brand:hover { color: var(--on-dark); }
+.nav__brand img { width: 28px; height: 28px; }
+.nav__cta {
+  font-family: var(--body);
+  font-weight: 600;
+  font-size: 14px;
+  padding: 9px 18px;
+  border-radius: 999px;
+  background: var(--orange);
+  color: var(--ink);
+  text-decoration: none;
+  transition: transform 180ms ease, background 180ms ease;
+}
+.nav__cta:hover { transform: translateY(-1px); background: var(--orange-bright); color: var(--ink); }
+
+/* ── Page header ───────────────────────────────────────────────────────── */
+.page-header {
+  padding: clamp(60px, 8vw, 100px) 0 clamp(32px, 5vw, 48px);
+  border-bottom: 1px solid var(--on-light-faint);
+}
+.page-header__inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+.page-header__eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin: 0 0 14px;
+}
+.page-header__title {
+  font-family: var(--display);
+  font-size: clamp(42px, 6.5vw, 72px);
+  line-height: 1;
+  letter-spacing: -0.01em;
+  margin: 0;
+  color: var(--on-light);
+}
+.page-header__title-mark {
+  color: var(--orange);
+  display: inline-block;
+  position: relative;
+}
+.page-header__title-mark::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: -4px;
+  bottom: -4px;
+  height: 8px;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 8' preserveAspectRatio='none'><path d='M0,4 Q12.5,0 25,4 T50,4 T75,4 T100,4' fill='none' stroke='%23E68B2F' stroke-width='2' opacity='0.55'/></svg>");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+.page-header__meta {
+  margin-top: 20px;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  color: var(--on-light-muted);
+}
+
+/* ── Content column ────────────────────────────────────────────────────── */
+.content {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: clamp(40px, 6vw, 64px) var(--gutter) clamp(64px, 10vw, 120px);
+}
+
+.content p {
+  margin: 0 0 1.2em;
+  font-size: 16.5px;
+  line-height: 1.65;
+  color: var(--on-light);
+}
+
+.content h2 {
+  font-family: var(--display);
+  font-size: clamp(26px, 3.4vw, 34px);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  margin: 56px 0 18px;
+  color: var(--on-light);
+}
+.content h2:first-child { margin-top: 0; }
+
+.content h3 {
+  font-family: var(--body);
+  font-weight: 700;
+  font-size: 17px;
+  letter-spacing: 0.02em;
+  margin: 32px 0 10px;
+  color: var(--on-light);
+}
+
+.content ul {
+  margin: 0 0 1.4em;
+  padding-left: 22px;
+}
+.content li {
+  font-size: 16.5px;
+  line-height: 1.65;
+  margin-bottom: 6px;
+  color: var(--on-light);
+}
+
+.content strong { font-weight: 700; color: var(--ink-deep); }
+
+/* Callout for the surfing-risk warning. Visually distinct because it
+   actually matters — people need to internalize that surf forecasts
+   can be wrong and the ocean can hurt you. */
+.callout {
+  background: #fff;
+  border: 1px solid var(--on-light-faint);
+  border-left: 3px solid var(--orange);
+  border-radius: 10px;
+  padding: 24px 28px;
+  margin: 24px 0 32px;
+}
+.callout p:last-child { margin-bottom: 0; }
+.callout h3 { margin-top: 0; }
+
+/* Bottom navigation back to home */
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--teal);
+  text-decoration: none;
+  margin-top: 48px;
+  padding-top: 28px;
+  border-top: 1px solid var(--on-light-faint);
+}
+.back-link:hover { color: var(--orange); }
+.back-link::before { content: '←'; }
+
+/* ── Footer (matches landing) ──────────────────────────────────────────── */
+.footer {
+  padding: 36px var(--gutter) 44px;
+  background: var(--ink-deep);
+  color: var(--on-dark-muted);
+  font-family: var(--body);
+  font-size: 13px;
+  border-top: 1px solid var(--on-dark-faint);
+}
+.footer__inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.footer__links { display: flex; gap: 22px; flex-wrap: wrap; }
+.footer__links a {
+  color: var(--on-dark-muted);
+  text-decoration: none;
+}
+.footer__links a:hover { color: var(--orange-bright); }
+.footer__credit {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: rgba(250, 248, 234, 0.45);
+}
+
+@media (max-width: 540px) {
+  .content { padding-left: var(--gutter); padding-right: var(--gutter); }
+  .callout { padding: 20px 22px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ─── Nav ──────────────────────────────────────────────────────────── -->
+<nav class="nav">
+  <div class="nav__inner">
+    <a href="/" class="nav__brand">
+      <img src="splash_logo.png" alt="WaveCheck">
+      WaveCheck
+    </a>
+    <a href="/#download" class="nav__cta">Download</a>
+  </div>
+</nav>
+
+<!-- ─── Page header ──────────────────────────────────────────────────── -->
+<header class="page-header">
+  <div class="page-header__inner">
+    <p class="page-header__eyebrow">From the beach</p>
+    <h1 class="page-header__title">
+      Community <span class="page-header__title-mark">Rules</span>
+    </h1>
+    <p class="page-header__meta">Effective November 3, 2026</p>
+  </div>
+</header>
+
+<!-- ─── Content ──────────────────────────────────────────────────────── -->
+<main class="content">
+
+  <p>
+    Reports from the beach only work if surfers can trust them. These
+    rules cover everything you post in WaveCheck: ratings, notes and
+    photos. You agree to them before your first report.
+  </p>
+
+  <h2>What a good report looks like</h2>
+  <ul>
+    <li>You're at the spot, saying what you can see right now.</li>
+    <li>It's honest, and rated for the board you picked.</li>
+    <li>Any photo shows the waves, not people.</li>
+  </ul>
+
+  <h2>What's not allowed</h2>
+  <p>
+    There is no tolerance for objectionable content or abusive users.
+    That includes:
+  </p>
+  <ul>
+    <li>Abuse, harassment, threats or hate towards anyone</li>
+    <li>Sexual, violent or otherwise objectionable content</li>
+    <li>Photos that single out other people, and any photo of a child</li>
+    <li>Other people's personal information</li>
+    <li>Spam, advertising, links or promoting a business</li>
+    <li>False reports, including reports made just to earn free Pro</li>
+  </ul>
+
+  <h2>Flagging and blocking</h2>
+  <p>
+    Open the reports for a spot and tap the menu on any report. Choose
+    <strong>Report this</strong> to flag it, or
+    <strong>Block this surfer</strong> to stop seeing their reports. A
+    report you flag disappears for you straight away, and you can undo a
+    block in Settings, under Blocked surfers.
+  </p>
+  <p>
+    We review every flag within 24 hours. You can also reach us at
+    <a href="mailto:hello@wavecheck.surf">hello@wavecheck.surf</a>.
+  </p>
+
+  <h2>If the rules are broken</h2>
+  <p>
+    We remove reports that break these rules. For repeat or serious
+    offences we close the account, and any free Pro earned with false
+    reports can be withdrawn.
+  </p>
+
+  <h2>Free Pro for reporting</h2>
+  <p>
+    Report on 5 days and you get a month of Pro, free. Report on 8 days
+    in a calendar month and you get another month. One report a day
+    counts, and it has to be made at the spot. We may change or end this
+    offer, but free months you've already earned stay yours unless they
+    were earned by breaking these rules.
+  </p>
+
+  <h2>Your reports</h2>
+  <p>
+    Delete any of your reports from the menu on it. Deleting your account
+    deletes all your reports and photos. Our
+    <a href="/privacy">Privacy Policy</a> explains what we store.
+  </p>
+
+  <a href="/" class="back-link">Back to WaveCheck</a>
+
+</main>
+
+<!-- ─── Footer (matches landing) ─────────────────────────────────────── -->
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__links">
+      <a href="mailto:support@wavecheck.surf">Contact</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/community">Community rules</a>
+      <a href="https://instagram.com/wavecheck.surf" target="_blank" rel="noopener">Instagram</a>
+    </div>
+    <div class="footer__credit">© 2026 WaveCheck · Made with ♥ in Ferrel, Portugal</div>
+  </div>
+</footer>
+
+</body>
+</html>
