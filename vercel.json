@@ -7,11 +7,17 @@
   ],
   "cleanUrls": true,
   "redirects": [
-    { "source": "/go/:tag", "destination": "https://api.wavecheck.surf/go/:tag", "permanent": false }
+    { "source": "/go/:tag", "destination": "https://api.wavecheck.surf/go/:tag", "permanent": false },
+    {
+      "source": "/((?!\\.well-known/).*)",
+      "has": [{ "type": "host", "value": "wavecheck.surf" }],
+      "destination": "https://www.wavecheck.surf/$1",
+      "permanent": true
+    }
   ],
   "rewrites": [
-    { "source": "/spot/:id", "destination": "/app-redirect.html" },
-    { "source": "/forecast/:id", "destination": "/app-redirect.html" },
+    { "source": "/spot/:id", "destination": "/app-redirect" },
+    { "source": "/forecast/:id", "destination": "/app-redirect" },
     { "source": "/surf-forecast",        "destination": "https://wavecheck-forecast.vercel.app/surf-forecast" },
     { "source": "/surf-forecast/:path*", "destination": "https://wavecheck-forecast.vercel.app/surf-forecast/:path*" },
     { "source": "/api/forecast",         "destination": "https://wavecheck-forecast.vercel.app/api/forecast" },
